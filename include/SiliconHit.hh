@@ -36,8 +36,7 @@
 #include "G4ThreeVector.hh"
 #include "G4Threading.hh"
 
-namespace B4c
-{
+
 
 /// Calorimeter hit class
 ///
@@ -45,16 +44,16 @@ namespace B4c
 /// of charged particles in a selected volume:
 /// - fEdep, fTrackLength
 
-class CalorHit : public G4VHit
+class SiliconHit : public G4VHit
 {
   public:
-    CalorHit() = default;
-    CalorHit(const CalorHit&) = default;
-    ~CalorHit() override = default;
+   SiliconHit() = default;
+  SiliconHit(const SiliconHit&) = default;
+    ~SiliconHit() override = default;
 
     // operators
-    CalorHit& operator=(const CalorHit&) = default;
-    G4bool operator==(const CalorHit&) const;
+    SiliconHit& operator=(const SiliconHit&) = default;
+    G4bool operator==(const SiliconHit&) const;
 
     inline void* operator new(size_t);
     inline void  operator delete(void*);
@@ -77,44 +76,43 @@ class CalorHit : public G4VHit
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-using CalorHitsCollection = G4THitsCollection<CalorHit>;
+using SiliconHitsCollection = G4THitsCollection<SiliconHit>;
 
-extern G4ThreadLocal G4Allocator<CalorHit>* CalorHitAllocator;
+extern G4ThreadLocal G4Allocator<SiliconHit>* SiliconHitAllocator;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-inline void* CalorHit::operator new(size_t)
+inline void* SiliconHit::operator new(size_t)
 {
-  if (!CalorHitAllocator) {
-    CalorHitAllocator = new G4Allocator<CalorHit>;
+  if (!SiliconHitAllocator) {
+   SiliconHitAllocator = new G4Allocator<SiliconHit>;
   }
   void *hit;
-  hit = (void *) CalorHitAllocator->MallocSingle();
+  hit = (void *) SiliconHitAllocator->MallocSingle();
   return hit;
 }
 
-inline void CalorHit::operator delete(void *hit)
+inline void SiliconHit::operator delete(void *hit)
 {
-  if (!CalorHitAllocator) {
-    CalorHitAllocator = new G4Allocator<CalorHit>;
+  if (!SiliconHitAllocator) {
+    SiliconHitAllocator = new G4Allocator<SiliconHit>;
   }
-  CalorHitAllocator->FreeSingle((CalorHit*) hit);
+  SiliconHitAllocator->FreeSingle((SiliconHit*) hit);
 }
 
-inline void CalorHit::Add(G4double de, G4double dl) {
+inline void SiliconHit::Add(G4double de, G4double dl) {
   fEdep += de;
   fTrackLength += dl;
 }
 
-inline G4double CalorHit::GetEdep() const {
+inline G4double SiliconHit::GetEdep() const {
   return fEdep;
 }
 
-inline G4double CalorHit::GetTrackLength() const {
+inline G4double SiliconHit::GetTrackLength() const {
   return fTrackLength;
 }
 
-}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

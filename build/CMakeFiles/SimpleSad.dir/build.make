@@ -73,113 +73,113 @@ CMakeFiles/SimpleSad.dir/SimpleSad.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/SimpleSad.cc.o: /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc
 CMakeFiles/SimpleSad.dir/SimpleSad.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SimpleSad.dir/SimpleSad.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/SimpleSad.cc.o -MF CMakeFiles/SimpleSad.dir/SimpleSad.cc.o.d -o CMakeFiles/SimpleSad.dir/SimpleSad.cc.o -c /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/SimpleSad.cc.o -MF CMakeFiles/SimpleSad.dir/SimpleSad.cc.o.d -o CMakeFiles/SimpleSad.dir/SimpleSad.cc.o -c /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc
 
 CMakeFiles/SimpleSad.dir/SimpleSad.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/SimpleSad.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc > CMakeFiles/SimpleSad.dir/SimpleSad.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc > CMakeFiles/SimpleSad.dir/SimpleSad.cc.i
 
 CMakeFiles/SimpleSad.dir/SimpleSad.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/SimpleSad.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc -o CMakeFiles/SimpleSad.dir/SimpleSad.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc -o CMakeFiles/SimpleSad.dir/SimpleSad.cc.s
 
 CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc
 CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o -MF CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o -MF CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc
 
 CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc > CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc > CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.i
 
 CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc -o CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc -o CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.s
 
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc
 
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc > CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc > CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.i
 
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc -o CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc -o CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.s
 
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SimpleSad.dir/src/EventAction.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/EventAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/EventAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/EventAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/EventAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/EventAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/EventAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc
 
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/EventAction.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc > CMakeFiles/SimpleSad.dir/src/EventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc > CMakeFiles/SimpleSad.dir/src/EventAction.cc.i
 
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/EventAction.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc -o CMakeFiles/SimpleSad.dir/src/EventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc -o CMakeFiles/SimpleSad.dir/src/EventAction.cc.s
 
 CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc
 CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc > CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc > CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc -o CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc -o CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc
 CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SimpleSad.dir/src/RunAction.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/RunAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/RunAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/RunAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/RunAction.cc.o -MF CMakeFiles/SimpleSad.dir/src/RunAction.cc.o.d -o CMakeFiles/SimpleSad.dir/src/RunAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc
 
 CMakeFiles/SimpleSad.dir/src/RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/RunAction.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc > CMakeFiles/SimpleSad.dir/src/RunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc > CMakeFiles/SimpleSad.dir/src/RunAction.cc.i
 
 CMakeFiles/SimpleSad.dir/src/RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/RunAction.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc -o CMakeFiles/SimpleSad.dir/src/RunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc -o CMakeFiles/SimpleSad.dir/src/RunAction.cc.s
 
 CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o: /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc
 CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o -MF CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o.d -o CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o -MF CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o.d -o CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc
 
 CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc > CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc > CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.i
 
 CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc -o CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc -o CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.s
 
 CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: CMakeFiles/SimpleSad.dir/flags.make
 CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc
 CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: CMakeFiles/SimpleSad.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o -MF CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o.d -o CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o -MF CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o.d -o CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc
 
 CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.i"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc > CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc > CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.i
 
 CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.s"
-	/home/giulio/miniconda3/envs/my_root_env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc -o CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc -o CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.s
 
 # Object files for target SimpleSad
 SimpleSad_OBJECTS = \

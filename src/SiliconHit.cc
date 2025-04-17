@@ -43,14 +43,14 @@ G4ThreadLocal G4Allocator<CalorHit>* CalorHitAllocator = nullptr;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool CalorHit::operator==(const CalorHit& right) const
+G4bool SiliconHit::operator==(const SiliconHit& right) const
 {
   return ( this == &right ) ? true : false;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void CalorHit::Print()
+void SiliconHit::Print()
 {
   G4cout
      << "Edep: "
