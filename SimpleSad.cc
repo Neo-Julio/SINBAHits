@@ -89,6 +89,7 @@ int main(int argc,char** argv)
 
   // Get the pointer to the User Interface manager
   auto UImanager = G4UImanager::GetUIpointer();
+ // UImanager -> ApplyCommand("/control/macroPath /home/giulio/GEANT4/workspace/SAD/InputFiles");
 
   // Process macro or start UI session
   //

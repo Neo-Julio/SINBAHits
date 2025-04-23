@@ -63,13 +63,13 @@ void SiliconSD::Initialize(G4HCofThisEvent* hce)
   // Create hits
   // fNofCells for cells + one more for total sums
   for (G4int i=0; i<fNofCells+1; i++ ) {
-    fHitsCollection->insert(new CalorHit());
+    fHitsCollection->insert(new SiliconHit());
   }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool CalorimeterSD::ProcessHits(G4Step* step,
+G4bool SiliconSD::ProcessHits(G4Step* step,
                                      G4TouchableHistory*)
 {
   // energy deposit
@@ -93,7 +93,7 @@ G4bool CalorimeterSD::ProcessHits(G4Step* step,
   if ( ! hit ) {
     G4ExceptionDescription msg;
     msg << "Cannot access hit " << layerNumber;
-    G4Exception("CalorimeterSD::ProcessHits()",
+    G4Exception("SiliconSD::ProcessHits()",
       "MyCode0004", FatalException, msg);
   }
 
@@ -110,7 +110,7 @@ G4bool CalorimeterSD::ProcessHits(G4Step* step,
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void CalorimeterSD::EndOfEvent(G4HCofThisEvent*)
+void SiliconSD::EndOfEvent(G4HCofThisEvent*)
 {
   if ( verboseLevel>1 ) {
      auto nofHits = fHitsCollection->entries();

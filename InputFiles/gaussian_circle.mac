@@ -1,0 +1,17 @@
+
+/gps/particle neutron
+/gps/pos/type Beam
+#/gps/pos/shape Circle
+/gps/pos/centre 0.0 0.0 -1.0 cm
+/gps/direction 0 0 1
+
+#/gps/pos/sigma_x 1.011 cm #EAR2
+#/gps/pos/sigma_y 0.9691 cm #EAR2
+#/gps/pos/radius 1 cm
+
+
+/gps/pos/sigma_x 0.67 cm #EAR1
+/gps/pos/sigma_y 0.64 cm #EAR1
+
+/gps/energy  14 MeV   #25 meV #250 keV # 20 MeV  #  0.0253 eV
+

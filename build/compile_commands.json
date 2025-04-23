@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/SimpleSad.cc.o -c /home/giulio/GEANT4/workspace/SAD/SimpleSad.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/SimpleSad.cc",
+  "output": "CMakeFiles/SimpleSad.dir/SimpleSad.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/ActionInitialization.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/EventAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/EventAction.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/EventAction.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/PrimaryGeneratorAction.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/PrimaryGeneratorAction.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/RunAction.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/RunAction.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/RunAction.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/RunAction.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/SiliconHit.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/SiliconHit.cc.o"
+},
+{
+  "directory": "/home/giulio/GEANT4/workspace/SAD/build",
+  "command": "/usr/bin/clang++ -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_OPENGLX -DG4VIS_USE_QT3D -DG4VIS_USE_RAYTRACERX -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DG4VIS_USE_TOOLSSG_X11_GLES -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -I/home/giulio/GEANT4/workspace/SAD/include -isystem /usr/local/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtOpenGL -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -g -fPIC -o CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o -c /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc",
+  "file": "/home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc",
+  "output": "CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o"
+}
+]

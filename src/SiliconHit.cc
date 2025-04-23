@@ -36,10 +36,8 @@
 
 #include <iomanip>
 
-namespace B4c
-{
 
-G4ThreadLocal G4Allocator<CalorHit>* CalorHitAllocator = nullptr;
+G4ThreadLocal G4Allocator<SiliconHit>* SiliconHitAllocator = nullptr;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -62,4 +60,3 @@ void SiliconHit::Print()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-}
