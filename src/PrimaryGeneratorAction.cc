@@ -39,8 +39,7 @@
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
 
-namespace B1
-{
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -53,10 +52,10 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4String particleName;
   G4ParticleDefinition* particle
-    = particleTable->FindParticle(particleName="neutron");
+    = particleTable->FindParticle(particleName="alpha");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  fParticleGun->SetParticleEnergy(6.*MeV);
+  //fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  fParticleGun->SetParticleEnergy(1.*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -76,20 +75,33 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   // In order to avoid dependence of PrimaryGeneratorAction
   // on DetectorConstruction class we get Envelope volume
   // from G4LogicalVolumeStore.
+  G4double sourceRadius = 1 * um;
+  G4double r = sourceRadius * std::cbrt(G4UniformRand());  // uniform in volume
+  G4double theta = std::acos(1.0 - 2.0 * G4UniformRand());
+  G4double phi = 2.0 * CLHEP::pi * G4UniformRand();
+  
+  G4double x = r * std::sin(theta) * std::cos(phi);
+  G4double y = r * std::sin(theta) * std::sin(phi);
+  G4double z = 1*cm + r * std::cos(theta);
 
+
+  fParticleGun->SetParticlePosition(G4ThreeVector(x,y,z));
 
   
-  G4double x0 = 0;
-  G4double y0 = 0;
-  G4double z0 = -1*cm;
+  // Isotropic direction
+  G4double theta_dir = std::acos(1.0 - 2.0 * G4UniformRand());
+  G4double phi_dir = 2.0 * CLHEP::pi * G4UniformRand();
 
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+  G4double dx = std::sin(theta_dir) * std::cos(phi_dir);
+  G4double dy = std::sin(theta_dir) * std::sin(phi_dir);
+  G4double dz = std::cos(theta_dir);
+
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(dx, dy, dz));
 
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-}
 
 

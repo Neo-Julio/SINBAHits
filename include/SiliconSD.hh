@@ -52,8 +52,9 @@ class SiliconSD : public G4VSensitiveDetector
 {
   public:
     SiliconSD(const G4String& name,
-                  const G4String& hitsCollectionName,
-                  G4int nofCells);
+                  const G4String& hitsCollectionName
+            
+                  );
     ~SiliconSD() override = default;
 
     // methods from base class
@@ -63,7 +64,6 @@ class SiliconSD : public G4VSensitiveDetector
 
   private:
     SiliconHitsCollection* fHitsCollection = nullptr;
-    G4int fNofCells = 0;
 };
 
 

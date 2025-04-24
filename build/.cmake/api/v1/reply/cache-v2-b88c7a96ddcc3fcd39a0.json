@@ -2887,7 +2887,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_X11_xcb_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_X11_xcb_LIB",
@@ -2903,7 +2903,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_X11_xcb_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libX11-xcb.so"
 		},
 		{
 			"name" : "X11_XRes_INCLUDE_PATH",
@@ -3815,7 +3815,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_composite_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_composite_LIB",
@@ -3831,7 +3831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_composite_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-composite.so"
 		},
 		{
 			"name" : "X11_xcb_cursor_INCLUDE_PATH",
@@ -3879,7 +3879,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_damage_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_damage_LIB",
@@ -3895,7 +3895,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_damage_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-damage.so"
 		},
 		{
 			"name" : "X11_xcb_dpms_INCLUDE_PATH",
@@ -3911,7 +3911,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_dpms_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_dpms_LIB",
@@ -3927,7 +3927,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_dpms_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-dpms.so"
 		},
 		{
 			"name" : "X11_xcb_dri2_INCLUDE_PATH",
@@ -3943,7 +3943,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_dri2_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_dri2_LIB",
@@ -3959,7 +3959,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_dri2_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-dri2.so"
 		},
 		{
 			"name" : "X11_xcb_dri3_INCLUDE_PATH",
@@ -3975,7 +3975,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_dri3_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_dri3_LIB",
@@ -3991,7 +3991,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_dri3_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-dri3.so"
 		},
 		{
 			"name" : "X11_xcb_errors_INCLUDE_PATH",
@@ -4071,7 +4071,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_glx_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_glx_LIB",
@@ -4087,7 +4087,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_glx_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-glx.so"
 		},
 		{
 			"name" : "X11_xcb_icccm_INCLUDE_PATH",
@@ -4199,7 +4199,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_present_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_present_LIB",
@@ -4215,7 +4215,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_present_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-present.so"
 		},
 		{
 			"name" : "X11_xcb_randr_INCLUDE_PATH",
@@ -4231,7 +4231,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_randr_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_randr_LIB",
@@ -4247,7 +4247,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_randr_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-randr.so"
 		},
 		{
 			"name" : "X11_xcb_record_INCLUDE_PATH",
@@ -4263,7 +4263,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_record_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_record_LIB",
@@ -4279,7 +4279,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_record_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-record.so"
 		},
 		{
 			"name" : "X11_xcb_render_INCLUDE_PATH",
@@ -4295,7 +4295,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_render_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_render_LIB",
@@ -4311,7 +4311,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_render_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-render.so"
 		},
 		{
 			"name" : "X11_xcb_render_util_INCLUDE_PATH",
@@ -4359,7 +4359,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_res_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_res_LIB",
@@ -4375,7 +4375,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_res_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-res.so"
 		},
 		{
 			"name" : "X11_xcb_screensaver_INCLUDE_PATH",
@@ -4391,7 +4391,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_screensaver_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_screensaver_LIB",
@@ -4407,7 +4407,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_screensaver_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-screensaver.so"
 		},
 		{
 			"name" : "X11_xcb_shape_INCLUDE_PATH",
@@ -4423,7 +4423,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_shape_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_shape_LIB",
@@ -4439,7 +4439,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_shape_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-shape.so"
 		},
 		{
 			"name" : "X11_xcb_shm_INCLUDE_PATH",
@@ -4455,7 +4455,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_shm_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_shm_LIB",
@@ -4471,7 +4471,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_shm_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-shm.so"
 		},
 		{
 			"name" : "X11_xcb_sync_INCLUDE_PATH",
@@ -4487,7 +4487,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_sync_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_sync_LIB",
@@ -4503,7 +4503,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_sync_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-sync.so"
 		},
 		{
 			"name" : "X11_xcb_util_INCLUDE_PATH",
@@ -4551,7 +4551,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xf86dri_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xf86dri_LIB",
@@ -4567,7 +4567,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xf86dri_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xf86dri.so"
 		},
 		{
 			"name" : "X11_xcb_xfixes_INCLUDE_PATH",
@@ -4583,7 +4583,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xfixes_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xfixes_LIB",
@@ -4599,7 +4599,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xfixes_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xfixes.so"
 		},
 		{
 			"name" : "X11_xcb_xinerama_INCLUDE_PATH",
@@ -4615,7 +4615,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xinerama_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xinerama_LIB",
@@ -4631,7 +4631,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xinerama_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xinerama.so"
 		},
 		{
 			"name" : "X11_xcb_xinput_INCLUDE_PATH",
@@ -4647,7 +4647,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xinput_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xinput_LIB",
@@ -4663,7 +4663,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xinput_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xinput.so"
 		},
 		{
 			"name" : "X11_xcb_xkb_INCLUDE_PATH",
@@ -4675,7 +4675,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xkb_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xkb_LIB",
@@ -4691,7 +4691,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xkb_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xkb.so"
 		},
 		{
 			"name" : "X11_xcb_xrm_INCLUDE_PATH",
@@ -4739,7 +4739,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xtest_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xtest_LIB",
@@ -4755,7 +4755,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xtest_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xtest.so"
 		},
 		{
 			"name" : "X11_xcb_xv_INCLUDE_PATH",
@@ -4771,7 +4771,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xv_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xv_LIB",
@@ -4787,7 +4787,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xv_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xv.so"
 		},
 		{
 			"name" : "X11_xcb_xvmc_INCLUDE_PATH",
@@ -4803,7 +4803,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "X11_xcb_xvmc_INCLUDE_PATH-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/include"
 		},
 		{
 			"name" : "X11_xcb_xvmc_LIB",
@@ -4819,7 +4819,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "X11_xcb_xvmc_LIB-NOTFOUND"
+			"value" : "/home/giulio/miniconda3/envs/my_root_env/lib/libxcb-xvmc.so"
 		},
 		{
 			"name" : "X11_xkbcommon_INCLUDE_PATH",

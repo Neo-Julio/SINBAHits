@@ -38,11 +38,10 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-SiliconSD::SiliconSD(const G4String& name,
-                             const G4String& hitsCollectionName,
-                             G4int nofCells) //CHange it in the include
- : G4VSensitiveDetector(name),
-   fNofCells(nofCells) //Change it in the include
+SiliconSD::SiliconSD(const G4String& name, const G4String& hitsCollectionName)
+                           
+ : G4VSensitiveDetector(name)
+  
 {
   collectionName.insert(hitsCollectionName);
 }
@@ -62,9 +61,9 @@ void SiliconSD::Initialize(G4HCofThisEvent* hce)
 
   // Create hits
   // fNofCells for cells + one more for total sums
-  for (G4int i=0; i<fNofCells+1; i++ ) {
+  //for (G4int i=0; i<fNofCells+1; i++ ) {
     fHitsCollection->insert(new SiliconHit());
-  }
+//  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -86,24 +85,17 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
   auto touchable = (step->GetPreStepPoint()->GetTouchable());
 
   // Get calorimeter cell id
-  auto layerNumber = touchable->GetReplicaNumber(1);
+
 
   // Get hit accounting data for this cell
-  auto hit = (*fHitsCollection)[layerNumber];
-  if ( ! hit ) {
-    G4ExceptionDescription msg;
-    msg << "Cannot access hit " << layerNumber;
-    G4Exception("SiliconSD::ProcessHits()",
-      "MyCode0004", FatalException, msg);
-  }
+  auto hit = (*fHitsCollection)[0];
 
   // Get hit for total accounting
-  auto hitTotal
-    = (*fHitsCollection)[fHitsCollection->entries()-1];
+ 
 
   // Add values
   hit->Add(edep, stepLength);
-  hitTotal->Add(edep, stepLength);
+
 
   return true;
 }

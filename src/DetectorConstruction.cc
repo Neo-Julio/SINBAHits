@@ -41,10 +41,11 @@
 #include "G4SubtractionSolid.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
+#include "SiliconSD.hh"
+#include "SiliconHit.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4SDManager.hh"
 
-namespace B1
-{
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -152,8 +153,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
  
   // Set Shape2 as scoring volume
   //
-  fScoringVolume = logicDetector;
+  //fScoringVolume = logicDetector;
 
+
+  SiliconSD* siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
+
+  // Register the sensitive detector with Geant4's SDManager
+  G4SDManager* SDman = G4SDManager::GetSDMpointer();
+  SDman->AddNewDetector(siliconSD);
+
+  // Associate the sensitive detector with the logical volume
+  logicDetector->SetSensitiveDetector(siliconSD);
   //
   //always return the physical World
   //
@@ -162,4 +172,4 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-}
+

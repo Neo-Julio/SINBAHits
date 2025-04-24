@@ -1166,6 +1166,8 @@ CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: /home/giulio/GEANT4/work
 
 CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc \
   /home/giulio/GEANT4/workspace/SAD/include/DetectorConstruction.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
   /usr/include/c++/13/atomic \
@@ -1575,6 +1577,7 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4Box.icc \
   /usr/local/include/Geant4/G4CSGSolid.hh \
   /usr/local/include/Geant4/G4ClassificationOfNewTrack.hh \
+  /usr/local/include/Geant4/G4CollectionNameVector.hh \
   /usr/local/include/Geant4/G4Cons.hh \
   /usr/local/include/Geant4/G4Cons.icc \
   /usr/local/include/Geant4/G4DCofThisEvent.hh \
@@ -1601,6 +1604,7 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4GeomTypes.hh \
   /usr/local/include/Geant4/G4GlobalConfig.hh \
   /usr/local/include/Geant4/G4HCofThisEvent.hh \
+  /usr/local/include/Geant4/G4HCtable.hh \
   /usr/local/include/Geant4/G4ICRU90StoppingData.hh \
   /usr/local/include/Geant4/G4IntersectionSolid.hh \
   /usr/local/include/Geant4/G4IonisParamElm.hh \
@@ -1677,7 +1681,10 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4RotationMatrix.hh \
   /usr/local/include/Geant4/G4RunManager.hh \
   /usr/local/include/Geant4/G4RunManagerKernel.hh \
+  /usr/local/include/Geant4/G4SDManager.hh \
+  /usr/local/include/Geant4/G4SDStructure.hh \
   /usr/local/include/Geant4/G4SandiaTable.hh \
+  /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
   /usr/local/include/Geant4/G4SmartTrackStack.hh \
   /usr/local/include/Geant4/G4SmartVoxelHeader.hh \
   /usr/local/include/Geant4/G4SmartVoxelHeader.icc \
@@ -1702,6 +1709,7 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4SubEventTrackStack.hh \
   /usr/local/include/Geant4/G4SubtractionSolid.hh \
   /usr/local/include/Geant4/G4SystemOfUnits.hh \
+  /usr/local/include/Geant4/G4THitsCollection.hh \
   /usr/local/include/Geant4/G4Threading.hh \
   /usr/local/include/Geant4/G4ThreeVector.hh \
   /usr/local/include/Geant4/G4TouchableHandle.hh \
@@ -1733,6 +1741,7 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4VBooleanProcessor.hh \
   /usr/local/include/Geant4/G4VDigiCollection.hh \
   /usr/local/include/Geant4/G4VExternalNavigation.hh \
+  /usr/local/include/Geant4/G4VHit.hh \
   /usr/local/include/Geant4/G4VHitsCollection.hh \
   /usr/local/include/Geant4/G4VNavigation.hh \
   /usr/local/include/Geant4/G4VPVParameterisation.hh \
@@ -1741,6 +1750,9 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4VPhysicalVolume.hh \
   /usr/local/include/Geant4/G4VPhysicalVolume.icc \
   /usr/local/include/Geant4/G4VProcess.hh \
+  /usr/local/include/Geant4/G4VReadOutGeometry.hh \
+  /usr/local/include/Geant4/G4VSDFilter.hh \
+  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
   /usr/local/include/Geant4/G4VSolid.hh \
   /usr/local/include/Geant4/G4VSolid.icc \
   /usr/local/include/Geant4/G4VSteppingVerbose.hh \
@@ -4327,19 +4339,9 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/trkdefs.hh
 
 
-/usr/local/include/Geant4/G4VSDFilter.hh:
-
-/usr/local/include/Geant4/G4SDManager.hh:
-
-/usr/local/include/Geant4/G4HCtable.hh:
-
-/home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh:
-
 /home/giulio/GEANT4/workspace/SAD/src/SiliconSD.cc:
 
 /usr/local/include/Geant4/G4Circle.hh:
-
-/home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh:
 
 /usr/local/include/Geant4/G4UnitsTable.icc:
 
@@ -4353,17 +4355,27 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4VStoreNotifier.hh:
 
+/usr/local/include/Geant4/G4VSDFilter.hh:
+
+/usr/local/include/Geant4/G4SDManager.hh:
+
 /usr/local/include/Geant4/G4Pow.hh:
 
 /usr/local/include/Geant4/G4PVPlacement.hh:
 
 /usr/local/include/Geant4/G4NistManager.hh:
 
+/usr/local/include/Geant4/G4HCtable.hh:
+
 /usr/local/include/Geant4/G4DisplacedSolid.hh:
 
 /usr/local/include/Geant4/G4BooleanSolid.icc:
 
 /usr/local/include/Geant4/G4BooleanSolid.hh:
+
+/home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh:
+
+/home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh:
 
 /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc:
 

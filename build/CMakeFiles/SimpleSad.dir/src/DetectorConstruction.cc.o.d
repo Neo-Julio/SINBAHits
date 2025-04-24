@@ -586,4 +586,16 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: \
   /usr/local/include/Geant4/G4BooleanSolid.icc \
   /usr/local/include/Geant4/G4SubtractionSolid.hh \
   /usr/local/include/Geant4/G4PVPlacement.hh \
-  /usr/local/include/Geant4/G4SystemOfUnits.hh
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh \
+  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
+  /usr/local/include/Geant4/G4CollectionNameVector.hh \
+  /usr/local/include/Geant4/G4VHit.hh \
+  /usr/local/include/Geant4/G4VReadOutGeometry.hh \
+  /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
+  /usr/local/include/Geant4/G4VSDFilter.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh \
+  /usr/local/include/Geant4/G4THitsCollection.hh \
+  /usr/local/include/Geant4/G4SystemOfUnits.hh \
+  /usr/local/include/Geant4/G4SDManager.hh \
+  /usr/local/include/Geant4/G4HCtable.hh \
+  /usr/local/include/Geant4/G4SDStructure.hh

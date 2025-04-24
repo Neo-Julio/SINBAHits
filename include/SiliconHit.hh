@@ -48,8 +48,8 @@ class SiliconHit : public G4VHit
 {
   public:
    SiliconHit() = default;
-  SiliconHit(const SiliconHit&) = default;
-    ~SiliconHit() override = default;
+   SiliconHit(const SiliconHit&) = default;
+  ~SiliconHit() override = default;
 
     // operators
     SiliconHit& operator=(const SiliconHit&) = default;
