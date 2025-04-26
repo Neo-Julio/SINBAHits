@@ -36,7 +36,7 @@
 
 #include <iomanip>
 
-
+typedef G4THitsCollection<SiliconHit> SiliconHitsCollection;
 G4ThreadLocal G4Allocator<SiliconHit>* SiliconHitAllocator = nullptr;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

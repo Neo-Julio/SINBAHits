@@ -104,6 +104,8 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
 
 void SiliconSD::EndOfEvent(G4HCofThisEvent*)
 {
+  if (!fHitsCollection) return; // <--- ADD THIS LINE SAFETY CHECK
+
   if ( verboseLevel>1 ) {
      auto nofHits = fHitsCollection->entries();
      G4cout

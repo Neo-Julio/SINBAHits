@@ -154,6 +154,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Set Shape2 as scoring volume
   //
   //fScoringVolume = logicDetector;
+ // auto absoSD
+  //  = new CalorimeterSD("AbsorberSD", "AbsorberHitsCollection", fNofLayers);
+  //G4SDManager::GetSDMpointer()->AddNewDetector(absoSD);
 
 
   SiliconSD* siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
@@ -161,11 +164,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Register the sensitive detector with Geant4's SDManager
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   SDman->AddNewDetector(siliconSD);
-
   // Associate the sensitive detector with the logical volume
-  logicDetector->SetSensitiveDetector(siliconSD);
+
   //
+  logicDetector->SetSensitiveDetector(siliconSD);
   //always return the physical World
+  G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
   //
   return physWorld;
 }

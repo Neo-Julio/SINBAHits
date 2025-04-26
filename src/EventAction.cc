@@ -24,39 +24,119 @@
 // ********************************************************************
 //
 //
-/// \file B1/src/EventAction.cc
-/// \brief Implementation of the B1::EventAction class
+/// \file B4/B4c/src/EventAction.cc
+/// \brief Implementation of the B4c::EventAction class
 
 #include "EventAction.hh"
-#include "RunAction.hh"
+#include "SiliconSD.hh"
+#include "SiliconHit.hh"
 
-#include "G4Event.hh"
+#include "G4AnalysisManager.hh"
 #include "G4RunManager.hh"
+#include "G4Event.hh"
+#include "G4SDManager.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4UnitsTable.hh"
 
-namespace B1
-{
+#include "Randomize.hh"
+#include <iomanip>
+
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-EventAction::EventAction(RunAction* runAction)
-: fRunAction(runAction)
+SiliconHitsCollection*
+EventAction::GetHitsCollection(G4int hcID,
+                                  const G4Event* event) const
+{
+  auto hitsCollection
+    = static_cast<SiliconHitsCollection*>(
+        event->GetHCofThisEvent()->GetHC(hcID));
+
+  if ( ! hitsCollection ) {
+    G4ExceptionDescription msg;
+    msg << "Cannot access hitsCollection ID " << hcID;
+    G4Exception("EventAction::GetHitsCollection()",
+      "MyCode0003", FatalException, msg);
+  }
+
+  return hitsCollection;
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void EventAction::PrintEventStatistics(
+                              G4double absoEdep, G4double absoTrackLength
+                            ) const
+{
+  // print event statistics
+  G4cout
+     << "   Absorber: total energy: "
+     << std::setw(7) << G4BestUnit(absoEdep, "Energy")
+     << "       total track length: "
+     << std::setw(7) << G4BestUnit(absoTrackLength, "Length")
+     << G4endl;
+  
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void EventAction::BeginOfEventAction(const G4Event* /*event*/)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void EventAction::BeginOfEventAction(const G4Event*)
+void EventAction::EndOfEventAction(const G4Event* event)
 {
-  fEdep = 0.;
+  // Get hits collections IDs (only once)
+  if ( fAbsHCID == -1 ) {
+    fAbsHCID
+      = G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
+
+  }
+
+  // Get hits collections
+  auto absoHC = GetHitsCollection(fAbsHCID, event);
+
+
+  // Get hit with total values
+
+  if (absoHC->entries() == 0) {
+    G4cout << "No hits in this event." << G4endl;
+    return;  // or handle the case as needed
+  }
+  auto absoHit = (*absoHC)[absoHC->entries()-1];
+
+  // Print per event (modulo n)
+  //
+  auto eventID = event->GetEventID();
+  auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
+  if ( ( printModulo > 0 ) && ( eventID % printModulo == 0 ) ) {
+    PrintEventStatistics(
+      absoHit->GetEdep(), absoHit->GetTrackLength());
+    G4cout << "--> End of event: " << eventID << "\n" << G4endl;      
+  }
+
+  // Fill histograms, ntuple
+  //
+/*
+  // get analysis manager
+  auto analysisManager = G4AnalysisManager::Instance();
+
+  // fill histograms
+  analysisManager->FillH1(0, absoHit->GetEdep());
+  analysisManager->FillH1(1, gapHit->GetEdep());
+  analysisManager->FillH1(2, absoHit->GetTrackLength());
+  analysisManager->FillH1(3, gapHit->GetTrackLength());
+
+  // fill ntuple
+  analysisManager->FillNtupleDColumn(0, absoHit->GetEdep());
+  analysisManager->FillNtupleDColumn(1, gapHit->GetEdep());
+  analysisManager->FillNtupleDColumn(2, absoHit->GetTrackLength());
+  analysisManager->FillNtupleDColumn(3, gapHit->GetTrackLength());
+  analysisManager->AddNtupleRow();*/
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void EventAction::EndOfEventAction(const G4Event*)
-{
-  // accumulate statistics in run action
-  fRunAction->AddEdep(fEdep);
-}
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-}

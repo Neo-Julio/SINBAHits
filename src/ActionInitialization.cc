@@ -53,7 +53,7 @@ void ActionInitialization::Build() const
   auto runAction = new RunAction;
   SetUserAction(runAction);
 
-  auto eventAction = new EventAction(runAction);
+  auto eventAction = new EventAction;
   SetUserAction(eventAction);
 
 }

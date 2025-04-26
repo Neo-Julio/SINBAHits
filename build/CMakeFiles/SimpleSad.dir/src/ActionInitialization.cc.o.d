@@ -330,4 +330,8 @@ CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/compare \
   /usr/local/include/Geant4/G4Accumulable.icc \
   /home/giulio/GEANT4/workspace/SAD/include/EventAction.hh \
-  /usr/local/include/Geant4/G4UserEventAction.hh
+  /usr/local/include/Geant4/G4UserEventAction.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh \
+  /usr/local/include/Geant4/G4VHit.hh \
+  /usr/local/include/Geant4/G4THitsCollection.hh \
+  /usr/local/include/Geant4/G4VHitsCollection.hh

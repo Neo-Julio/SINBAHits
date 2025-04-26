@@ -36,8 +36,6 @@
 
 class G4Run;
 
-namespace B1
-{
 
 /// Run action class
 ///
@@ -61,7 +59,6 @@ class RunAction : public G4UserRunAction
     G4Accumulable<G4double> fEdep2 = 0.;
 };
 
-}
 
 #endif
 

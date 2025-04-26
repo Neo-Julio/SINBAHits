@@ -822,6 +822,7 @@ CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: /home/giulio/GEANT4/work
   /home/giulio/GEANT4/workspace/SAD/include/EventAction.hh \
   /home/giulio/GEANT4/workspace/SAD/include/PrimaryGeneratorAction.hh \
   /home/giulio/GEANT4/workspace/SAD/include/RunAction.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
   /usr/include/c++/13/atomic \
@@ -1148,6 +1149,7 @@ CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4PrimaryVertex.hh \
   /usr/local/include/Geant4/G4String.hh \
   /usr/local/include/Geant4/G4String.icc \
+  /usr/local/include/Geant4/G4THitsCollection.hh \
   /usr/local/include/Geant4/G4Threading.hh \
   /usr/local/include/Geant4/G4ThreeVector.hh \
   /usr/local/include/Geant4/G4Types.hh \
@@ -1155,6 +1157,8 @@ CMakeFiles/SimpleSad.dir/src/ActionInitialization.cc.o: /home/giulio/GEANT4/work
   /usr/local/include/Geant4/G4UserRunAction.hh \
   /usr/local/include/Geant4/G4VAccumulable.hh \
   /usr/local/include/Geant4/G4VAccumulable.icc \
+  /usr/local/include/Geant4/G4VHit.hh \
+  /usr/local/include/Geant4/G4VHitsCollection.hh \
   /usr/local/include/Geant4/G4VPrimaryGenerator.hh \
   /usr/local/include/Geant4/G4VUserActionInitialization.hh \
   /usr/local/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
@@ -1785,7 +1789,8 @@ CMakeFiles/SimpleSad.dir/src/DetectorConstruction.cc.o: /home/giulio/GEANT4/work
 
 CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD/src/EventAction.cc \
   /home/giulio/GEANT4/workspace/SAD/include/EventAction.hh \
-  /home/giulio/GEANT4/workspace/SAD/include/RunAction.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh \
+  /home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
   /usr/include/c++/13/atomic \
@@ -2177,19 +2182,25 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/CLHEP/Vector/RotationZ.icc \
   /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
   /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
-  /usr/local/include/Geant4/G4Accumulable.hh \
-  /usr/local/include/Geant4/G4Accumulable.icc \
   /usr/local/include/Geant4/G4AffineTransform.hh \
   /usr/local/include/Geant4/G4AffineTransform.icc \
   /usr/local/include/Geant4/G4Allocator.hh \
   /usr/local/include/Geant4/G4AllocatorPool.hh \
+  /usr/local/include/Geant4/G4AnalysisManager.hh \
+  /usr/local/include/Geant4/G4AnalysisManagerState.hh \
+  /usr/local/include/Geant4/G4AnalysisUtilities.hh \
+  /usr/local/include/Geant4/G4AnalysisVerbose.hh \
   /usr/local/include/Geant4/G4ApplicationState.hh \
   /usr/local/include/Geant4/G4AutoLock.hh \
   /usr/local/include/Geant4/G4AuxiliaryNavServices.hh \
   /usr/local/include/Geant4/G4AuxiliaryNavServices.icc \
+  /usr/local/include/Geant4/G4BaseAnalysisManager.hh \
+  /usr/local/include/Geant4/G4BaseFileManager.hh \
+  /usr/local/include/Geant4/G4BinScheme.hh \
   /usr/local/include/Geant4/G4BlockingList.hh \
   /usr/local/include/Geant4/G4BlockingList.icc \
   /usr/local/include/Geant4/G4ClassificationOfNewTrack.hh \
+  /usr/local/include/Geant4/G4CollectionNameVector.hh \
   /usr/local/include/Geant4/G4DCofThisEvent.hh \
   /usr/local/include/Geant4/G4DataVector.hh \
   /usr/local/include/Geant4/G4DataVector.icc \
@@ -2205,11 +2216,19 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4EventManager.hh \
   /usr/local/include/Geant4/G4Exception.hh \
   /usr/local/include/Geant4/G4ExceptionSeverity.hh \
+  /usr/local/include/Geant4/G4Fcn.hh \
   /usr/local/include/Geant4/G4ForceCondition.hh \
   /usr/local/include/Geant4/G4GPILSelection.hh \
+  /usr/local/include/Geant4/G4GenericAnalysisManager.hh \
+  /usr/local/include/Geant4/G4GenericAnalysisManager.icc \
+  /usr/local/include/Geant4/G4GenericFileManager.hh \
+  /usr/local/include/Geant4/G4GenericFileManager.icc \
   /usr/local/include/Geant4/G4GeomSplitter.hh \
   /usr/local/include/Geant4/G4GlobalConfig.hh \
   /usr/local/include/Geant4/G4HCofThisEvent.hh \
+  /usr/local/include/Geant4/G4HCtable.hh \
+  /usr/local/include/Geant4/G4HnInformation.hh \
+  /usr/local/include/Geant4/G4HnManager.hh \
   /usr/local/include/Geant4/G4IonisParamElm.hh \
   /usr/local/include/Geant4/G4IonisParamMat.hh \
   /usr/local/include/Geant4/G4Isotope.hh \
@@ -2223,7 +2242,6 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4MaterialPropertiesTable.hh \
   /usr/local/include/Geant4/G4MaterialPropertyVector.hh \
   /usr/local/include/Geant4/G4MaterialTable.hh \
-  /usr/local/include/Geant4/G4MergeMode.hh \
   /usr/local/include/Geant4/G4NavigationHistory.hh \
   /usr/local/include/Geant4/G4NavigationHistory.icc \
   /usr/local/include/Geant4/G4NavigationHistoryPool.hh \
@@ -2237,6 +2255,8 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4NoProcess.hh \
   /usr/local/include/Geant4/G4NormalNavigation.hh \
   /usr/local/include/Geant4/G4NormalNavigation.icc \
+  /usr/local/include/Geant4/G4NtupleBookingManager.hh \
+  /usr/local/include/Geant4/G4NtupleBookingManager.icc \
   /usr/local/include/Geant4/G4OrderedTable.hh \
   /usr/local/include/Geant4/G4PDefManager.hh \
   /usr/local/include/Geant4/G4ParameterisedNavigation.hh \
@@ -2275,7 +2295,10 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4RotationMatrix.hh \
   /usr/local/include/Geant4/G4RunManager.hh \
   /usr/local/include/Geant4/G4RunManagerKernel.hh \
+  /usr/local/include/Geant4/G4SDManager.hh \
+  /usr/local/include/Geant4/G4SDStructure.hh \
   /usr/local/include/Geant4/G4SandiaTable.hh \
+  /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
   /usr/local/include/Geant4/G4SmartTrackStack.hh \
   /usr/local/include/Geant4/G4SmartVoxelHeader.hh \
   /usr/local/include/Geant4/G4SmartVoxelHeader.icc \
@@ -2296,8 +2319,23 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4String.icc \
   /usr/local/include/Geant4/G4SubEvent.hh \
   /usr/local/include/Geant4/G4SubEventTrackStack.hh \
+  /usr/local/include/Geant4/G4TH1ToolsManager.hh \
+  /usr/local/include/Geant4/G4TH2ToolsManager.hh \
+  /usr/local/include/Geant4/G4TH3ToolsManager.hh \
+  /usr/local/include/Geant4/G4THitsCollection.hh \
+  /usr/local/include/Geant4/G4THnManager.hh \
+  /usr/local/include/Geant4/G4THnManager.icc \
+  /usr/local/include/Geant4/G4THnMessenger.hh \
+  /usr/local/include/Geant4/G4THnMessenger.icc \
+  /usr/local/include/Geant4/G4THnToolsManager.hh \
+  /usr/local/include/Geant4/G4THnToolsManager.icc \
+  /usr/local/include/Geant4/G4TP1ToolsManager.hh \
+  /usr/local/include/Geant4/G4TP2ToolsManager.hh \
   /usr/local/include/Geant4/G4Threading.hh \
   /usr/local/include/Geant4/G4ThreeVector.hh \
+  /usr/local/include/Geant4/G4Tokenizer.hh \
+  /usr/local/include/Geant4/G4ToolsAnalysisManager.hh \
+  /usr/local/include/Geant4/G4ToolsAnalysisManager.icc \
   /usr/local/include/Geant4/G4TouchableHandle.hh \
   /usr/local/include/Geant4/G4TouchableHistory.hh \
   /usr/local/include/Geant4/G4TouchableHistory.icc \
@@ -2316,26 +2354,35 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/G4UImessenger.hh \
   /usr/local/include/Geant4/G4UIparameter.hh \
   /usr/local/include/Geant4/G4UItokenNum.hh \
+  /usr/local/include/Geant4/G4UnitsTable.hh \
+  /usr/local/include/Geant4/G4UnitsTable.icc \
   /usr/local/include/Geant4/G4UserEventAction.hh \
-  /usr/local/include/Geant4/G4UserRunAction.hh \
   /usr/local/include/Geant4/G4UserStackingAction.hh \
   /usr/local/include/Geant4/G4UserSteppingAction.hh \
   /usr/local/include/Geant4/G4UserTrackingAction.hh \
-  /usr/local/include/Geant4/G4VAccumulable.hh \
-  /usr/local/include/Geant4/G4VAccumulable.icc \
+  /usr/local/include/Geant4/G4VAnalysisManager.hh \
+  /usr/local/include/Geant4/G4VAnalysisManager.icc \
   /usr/local/include/Geant4/G4VDigiCollection.hh \
   /usr/local/include/Geant4/G4VExternalNavigation.hh \
+  /usr/local/include/Geant4/G4VFileManager.hh \
+  /usr/local/include/Geant4/G4VHit.hh \
   /usr/local/include/Geant4/G4VHitsCollection.hh \
   /usr/local/include/Geant4/G4VNavigation.hh \
+  /usr/local/include/Geant4/G4VNtupleManager.hh \
   /usr/local/include/Geant4/G4VPVParameterisation.hh \
   /usr/local/include/Geant4/G4VParticleChange.hh \
   /usr/local/include/Geant4/G4VParticleChange.icc \
   /usr/local/include/Geant4/G4VPhysicalVolume.hh \
   /usr/local/include/Geant4/G4VPhysicalVolume.icc \
   /usr/local/include/Geant4/G4VProcess.hh \
+  /usr/local/include/Geant4/G4VReadOutGeometry.hh \
+  /usr/local/include/Geant4/G4VSDFilter.hh \
+  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
   /usr/local/include/Geant4/G4VSolid.hh \
   /usr/local/include/Geant4/G4VSolid.icc \
   /usr/local/include/Geant4/G4VSteppingVerbose.hh \
+  /usr/local/include/Geant4/G4VTBaseHnManager.hh \
+  /usr/local/include/Geant4/G4VTHnFileManager.hh \
   /usr/local/include/Geant4/G4VTouchable.hh \
   /usr/local/include/Geant4/G4VTrajectory.hh \
   /usr/local/include/Geant4/G4VUserEventInformation.hh \
@@ -2356,6 +2403,30 @@ CMakeFiles/SimpleSad.dir/src/EventAction.cc.o: /home/giulio/GEANT4/workspace/SAD
   /usr/local/include/Geant4/rundefs.hh \
   /usr/local/include/Geant4/templates.hh \
   /usr/local/include/Geant4/tls.hh \
+  /usr/local/include/Geant4/tools/cid \
+  /usr/local/include/Geant4/tools/cids \
+  /usr/local/include/Geant4/tools/forit \
+  /usr/local/include/Geant4/tools/eqT \
+  /usr/local/include/Geant4/tools/histo/axes \
+  /usr/local/include/Geant4/tools/histo/axis \
+  /usr/local/include/Geant4/tools/histo/b1 \
+  /usr/local/include/Geant4/tools/histo/b2 \
+  /usr/local/include/Geant4/tools/histo/b3 \
+  /usr/local/include/Geant4/tools/histo/base_histo \
+  /usr/local/include/Geant4/tools/histo/h1 \
+  /usr/local/include/Geant4/tools/histo/h1d \
+  /usr/local/include/Geant4/tools/histo/h2 \
+  /usr/local/include/Geant4/tools/histo/h2d \
+  /usr/local/include/Geant4/tools/histo/h3 \
+  /usr/local/include/Geant4/tools/histo/h3d \
+  /usr/local/include/Geant4/tools/histo/histo_data \
+  /usr/local/include/Geant4/tools/histo/p1 \
+  /usr/local/include/Geant4/tools/histo/p1d \
+  /usr/local/include/Geant4/tools/histo/p2 \
+  /usr/local/include/Geant4/tools/histo/p2d \
+  /usr/local/include/Geant4/tools/histo/profile_data \
+  /usr/local/include/Geant4/tools/ntuple_booking \
+  /usr/local/include/Geant4/tools/typedefs \
   /usr/local/include/Geant4/trkdefs.hh \
   /usr/local/include/Geant4/trkgdefs.hh
 
@@ -3351,10 +3422,17 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4AffineTransform.icc \
   /usr/local/include/Geant4/G4Allocator.hh \
   /usr/local/include/Geant4/G4AllocatorPool.hh \
+  /usr/local/include/Geant4/G4AnalysisManager.hh \
+  /usr/local/include/Geant4/G4AnalysisManagerState.hh \
+  /usr/local/include/Geant4/G4AnalysisUtilities.hh \
+  /usr/local/include/Geant4/G4AnalysisVerbose.hh \
   /usr/local/include/Geant4/G4ApplicationState.hh \
   /usr/local/include/Geant4/G4AutoLock.hh \
   /usr/local/include/Geant4/G4AuxiliaryNavServices.hh \
   /usr/local/include/Geant4/G4AuxiliaryNavServices.icc \
+  /usr/local/include/Geant4/G4BaseAnalysisManager.hh \
+  /usr/local/include/Geant4/G4BaseFileManager.hh \
+  /usr/local/include/Geant4/G4BinScheme.hh \
   /usr/local/include/Geant4/G4BlockingList.hh \
   /usr/local/include/Geant4/G4BlockingList.icc \
   /usr/local/include/Geant4/G4ClassificationOfNewTrack.hh \
@@ -3373,11 +3451,18 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4EventManager.hh \
   /usr/local/include/Geant4/G4Exception.hh \
   /usr/local/include/Geant4/G4ExceptionSeverity.hh \
+  /usr/local/include/Geant4/G4Fcn.hh \
   /usr/local/include/Geant4/G4ForceCondition.hh \
   /usr/local/include/Geant4/G4GPILSelection.hh \
+  /usr/local/include/Geant4/G4GenericAnalysisManager.hh \
+  /usr/local/include/Geant4/G4GenericAnalysisManager.icc \
+  /usr/local/include/Geant4/G4GenericFileManager.hh \
+  /usr/local/include/Geant4/G4GenericFileManager.icc \
   /usr/local/include/Geant4/G4GeomSplitter.hh \
   /usr/local/include/Geant4/G4GlobalConfig.hh \
   /usr/local/include/Geant4/G4HCofThisEvent.hh \
+  /usr/local/include/Geant4/G4HnInformation.hh \
+  /usr/local/include/Geant4/G4HnManager.hh \
   /usr/local/include/Geant4/G4IonisParamElm.hh \
   /usr/local/include/Geant4/G4IonisParamMat.hh \
   /usr/local/include/Geant4/G4Isotope.hh \
@@ -3406,6 +3491,8 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4NoProcess.hh \
   /usr/local/include/Geant4/G4NormalNavigation.hh \
   /usr/local/include/Geant4/G4NormalNavigation.icc \
+  /usr/local/include/Geant4/G4NtupleBookingManager.hh \
+  /usr/local/include/Geant4/G4NtupleBookingManager.icc \
   /usr/local/include/Geant4/G4OrderedTable.hh \
   /usr/local/include/Geant4/G4PDefManager.hh \
   /usr/local/include/Geant4/G4ParameterisedNavigation.hh \
@@ -3468,8 +3555,22 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4SubEvent.hh \
   /usr/local/include/Geant4/G4SubEventTrackStack.hh \
   /usr/local/include/Geant4/G4SystemOfUnits.hh \
+  /usr/local/include/Geant4/G4TH1ToolsManager.hh \
+  /usr/local/include/Geant4/G4TH2ToolsManager.hh \
+  /usr/local/include/Geant4/G4TH3ToolsManager.hh \
+  /usr/local/include/Geant4/G4THnManager.hh \
+  /usr/local/include/Geant4/G4THnManager.icc \
+  /usr/local/include/Geant4/G4THnMessenger.hh \
+  /usr/local/include/Geant4/G4THnMessenger.icc \
+  /usr/local/include/Geant4/G4THnToolsManager.hh \
+  /usr/local/include/Geant4/G4THnToolsManager.icc \
+  /usr/local/include/Geant4/G4TP1ToolsManager.hh \
+  /usr/local/include/Geant4/G4TP2ToolsManager.hh \
   /usr/local/include/Geant4/G4Threading.hh \
   /usr/local/include/Geant4/G4ThreeVector.hh \
+  /usr/local/include/Geant4/G4Tokenizer.hh \
+  /usr/local/include/Geant4/G4ToolsAnalysisManager.hh \
+  /usr/local/include/Geant4/G4ToolsAnalysisManager.icc \
   /usr/local/include/Geant4/G4TouchableHandle.hh \
   /usr/local/include/Geant4/G4TouchableHistory.hh \
   /usr/local/include/Geant4/G4TouchableHistory.icc \
@@ -3496,11 +3597,15 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4UserTrackingAction.hh \
   /usr/local/include/Geant4/G4VAccumulable.hh \
   /usr/local/include/Geant4/G4VAccumulable.icc \
+  /usr/local/include/Geant4/G4VAnalysisManager.hh \
+  /usr/local/include/Geant4/G4VAnalysisManager.icc \
   /usr/local/include/Geant4/G4VDigiCollection.hh \
   /usr/local/include/Geant4/G4VExternalNavigation.hh \
+  /usr/local/include/Geant4/G4VFileManager.hh \
   /usr/local/include/Geant4/G4VHitsCollection.hh \
   /usr/local/include/Geant4/G4VNavigation.hh \
   /usr/local/include/Geant4/G4VNotifier.hh \
+  /usr/local/include/Geant4/G4VNtupleManager.hh \
   /usr/local/include/Geant4/G4VPVParameterisation.hh \
   /usr/local/include/Geant4/G4VParticleChange.hh \
   /usr/local/include/Geant4/G4VParticleChange.icc \
@@ -3512,6 +3617,8 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/G4VSolid.icc \
   /usr/local/include/Geant4/G4VSteppingVerbose.hh \
   /usr/local/include/Geant4/G4VStoreNotifier.hh \
+  /usr/local/include/Geant4/G4VTBaseHnManager.hh \
+  /usr/local/include/Geant4/G4VTHnFileManager.hh \
   /usr/local/include/Geant4/G4VTouchable.hh \
   /usr/local/include/Geant4/G4VTrajectory.hh \
   /usr/local/include/Geant4/G4VUserDetectorConstruction.hh \
@@ -3534,6 +3641,30 @@ CMakeFiles/SimpleSad.dir/src/RunAction.cc.o: /home/giulio/GEANT4/workspace/SAD/s
   /usr/local/include/Geant4/rundefs.hh \
   /usr/local/include/Geant4/templates.hh \
   /usr/local/include/Geant4/tls.hh \
+  /usr/local/include/Geant4/tools/cid \
+  /usr/local/include/Geant4/tools/cids \
+  /usr/local/include/Geant4/tools/forit \
+  /usr/local/include/Geant4/tools/eqT \
+  /usr/local/include/Geant4/tools/histo/axes \
+  /usr/local/include/Geant4/tools/histo/axis \
+  /usr/local/include/Geant4/tools/histo/b1 \
+  /usr/local/include/Geant4/tools/histo/b2 \
+  /usr/local/include/Geant4/tools/histo/b3 \
+  /usr/local/include/Geant4/tools/histo/base_histo \
+  /usr/local/include/Geant4/tools/histo/h1 \
+  /usr/local/include/Geant4/tools/histo/h1d \
+  /usr/local/include/Geant4/tools/histo/h2 \
+  /usr/local/include/Geant4/tools/histo/h2d \
+  /usr/local/include/Geant4/tools/histo/h3 \
+  /usr/local/include/Geant4/tools/histo/h3d \
+  /usr/local/include/Geant4/tools/histo/histo_data \
+  /usr/local/include/Geant4/tools/histo/p1 \
+  /usr/local/include/Geant4/tools/histo/p1d \
+  /usr/local/include/Geant4/tools/histo/p2 \
+  /usr/local/include/Geant4/tools/histo/p2d \
+  /usr/local/include/Geant4/tools/histo/profile_data \
+  /usr/local/include/Geant4/tools/ntuple_booking \
+  /usr/local/include/Geant4/tools/typedefs \
   /usr/local/include/Geant4/trkdefs.hh \
   /usr/local/include/Geant4/trkgdefs.hh
 
@@ -4343,10 +4474,6 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4Circle.hh:
 
-/usr/local/include/Geant4/G4UnitsTable.icc:
-
-/usr/local/include/Geant4/G4UnitsTable.hh:
-
 /usr/local/include/Geant4/G4Run.hh:
 
 /usr/local/include/Geant4/G4AccumulableManager.icc:
@@ -4354,6 +4481,66 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/G4AccumulableManager.hh:
 
 /usr/local/include/Geant4/G4VStoreNotifier.hh:
+
+/usr/local/include/Geant4/tools/typedefs:
+
+/usr/local/include/Geant4/tools/histo/profile_data:
+
+/usr/local/include/Geant4/tools/histo/p1d:
+
+/usr/local/include/Geant4/tools/histo/p1:
+
+/usr/local/include/Geant4/tools/histo/histo_data:
+
+/usr/local/include/Geant4/tools/histo/h3d:
+
+/usr/local/include/Geant4/tools/histo/p2:
+
+/usr/local/include/Geant4/tools/histo/h3:
+
+/usr/local/include/Geant4/tools/histo/h2:
+
+/usr/local/include/Geant4/tools/histo/h1:
+
+/usr/local/include/Geant4/tools/histo/axes:
+
+/usr/local/include/Geant4/tools/eqT:
+
+/usr/local/include/Geant4/tools/forit:
+
+/usr/local/include/Geant4/tools/histo/b2:
+
+/usr/local/include/Geant4/tools/cids:
+
+/usr/local/include/Geant4/tools/cid:
+
+/usr/local/include/Geant4/G4VTHnFileManager.hh:
+
+/usr/local/include/Geant4/G4VFileManager.hh:
+
+/usr/local/include/Geant4/G4VAnalysisManager.hh:
+
+/usr/local/include/Geant4/G4UnitsTable.icc:
+
+/usr/local/include/Geant4/G4UnitsTable.hh:
+
+/usr/local/include/Geant4/G4ToolsAnalysisManager.hh:
+
+/usr/local/include/Geant4/G4TP2ToolsManager.hh:
+
+/usr/local/include/Geant4/G4THnMessenger.hh:
+
+/usr/local/include/Geant4/G4TH3ToolsManager.hh:
+
+/usr/local/include/Geant4/G4HnInformation.hh:
+
+/usr/local/include/Geant4/G4GenericFileManager.icc:
+
+/usr/local/include/Geant4/G4GenericFileManager.hh:
+
+/usr/local/include/Geant4/G4BinScheme.hh:
+
+/usr/local/include/Geant4/G4AnalysisUtilities.hh:
 
 /usr/local/include/Geant4/G4VSDFilter.hh:
 
@@ -4371,11 +4558,11 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4BooleanSolid.icc:
 
+/usr/local/include/Geant4/G4NtupleBookingManager.hh:
+
 /usr/local/include/Geant4/G4BooleanSolid.hh:
 
 /home/giulio/GEANT4/workspace/SAD/include/SiliconSD.hh:
-
-/home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh:
 
 /home/giulio/GEANT4/workspace/SAD/src/DetectorConstruction.cc:
 
@@ -4389,11 +4576,15 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4Accumulable.hh:
 
+/home/giulio/GEANT4/workspace/SAD/include/SiliconHit.hh:
+
 /home/giulio/GEANT4/workspace/SAD/include/EventAction.hh:
 
 /usr/local/include/Geant4/pwdefs.hh:
 
 /usr/local/include/Geant4/icomsdefs.hh:
+
+/usr/local/include/Geant4/G4Tokenizer.hh:
 
 /usr/local/include/Geant4/graphics_reps_defs.hh:
 
@@ -4469,11 +4660,15 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4VProcess.hh:
 
+/usr/local/include/Geant4/G4THnToolsManager.icc:
+
 /usr/local/include/Geant4/G4VPhysicsConstructor.hh:
 
 /usr/local/include/Geant4/G4VPhysicalVolume.icc:
 
 /usr/local/include/Geant4/G4VParticleChange.hh:
+
+/usr/local/include/Geant4/G4TH2ToolsManager.hh:
 
 /usr/local/include/Geant4/G4VNavigation.hh:
 
@@ -4535,6 +4730,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4TrackVector.hh:
 
+/usr/local/include/Geant4/G4TH1ToolsManager.hh:
+
 /usr/local/include/Geant4/G4NistElementBuilder.hh:
 
 /usr/local/include/Geant4/G4TrackStatus.hh:
@@ -4559,6 +4756,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4ThreadPool.hh:
 
+/usr/local/include/Geant4/G4BaseFileManager.hh:
+
 /usr/local/include/Geant4/G4VTouchable.hh:
 
 /usr/local/include/Geant4/G4ThreadLocalSingleton.hh:
@@ -4577,6 +4776,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4String.icc:
 
+/usr/local/include/Geant4/G4THnManager.icc:
+
 /usr/local/include/Geant4/G4VUserPhysicsList.hh:
 
 /usr/local/include/Geant4/G4String.hh:
@@ -4589,7 +4790,11 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4StackedTrack.hh:
 
+/usr/local/include/Geant4/G4TP1ToolsManager.hh:
+
 /usr/local/include/Geant4/G4Sphere.icc:
+
+/usr/local/include/Geant4/tools/ntuple_booking:
 
 /usr/local/include/Geant4/G4SmartVoxelProxy.icc:
 
@@ -4628,6 +4833,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/G4UIparameter.hh:
 
 /usr/local/include/Geant4/G4Region.hh:
+
+/usr/local/include/Geant4/G4AnalysisManager.hh:
 
 /usr/local/include/Geant4/G4ReferenceCountedHandle.hh:
 
@@ -4697,6 +4904,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/G4ParticleDefinition.hh:
 
+/usr/local/include/Geant4/G4ToolsAnalysisManager.icc:
+
 /usr/local/include/Geant4/G4ParticleChange.icc:
 
 /usr/local/include/Geant4/G4ParticleChange.hh:
@@ -4755,6 +4964,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/bits/regex_compiler.h:
 
+/usr/local/include/Geant4/G4VNtupleManager.hh:
+
 /usr/include/strings.h:
 
 /usr/include/c++/13/iomanip:
@@ -4801,6 +5012,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/local/include/Geant4/G4GenericAnalysisManager.icc:
+
 /usr/include/c++/13/vector:
 
 /usr/local/include/Geant4/CLHEP/Vector/RotationX.icc:
@@ -4830,6 +5043,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/c++/13/string_view:
 
 /usr/include/c++/13/map:
+
+/usr/local/include/Geant4/G4NtupleBookingManager.icc:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
@@ -4885,6 +5100,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/pstl/pstl_config.h:
 
+/usr/local/include/Geant4/tools/histo/axis:
+
 /usr/local/include/Geant4/G4PhysicsListOrderingParameter.hh:
 
 /usr/include/c++/13/bits/regex_automaton.h:
@@ -4935,6 +5152,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/CLHEP/Vector/RotationY.icc:
 
+/usr/local/include/Geant4/G4GenericAnalysisManager.hh:
+
 /usr/include/c++/13/ext/numeric_traits.h:
 
 /usr/include/c++/13/bits/stl_iterator.h:
@@ -4964,6 +5183,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/c++/13/new:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h:
+
+/usr/local/include/Geant4/G4HnManager.hh:
 
 /usr/include/locale.h:
 
@@ -4997,6 +5218,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/chrono:
 
+/usr/local/include/Geant4/tools/histo/b1:
+
 /usr/local/include/Geant4/G4UserStackingAction.hh:
 
 /usr/include/c++/13/compare:
@@ -5014,6 +5237,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/G4VMarker.icc:
 
 /usr/local/include/Geant4/G4AllocatorPool.hh:
+
+/usr/local/include/Geant4/tools/histo/b3:
 
 /usr/local/include/Geant4/G4GPILSelection.hh:
 
@@ -5048,6 +5273,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/c++/13/bits/memoryfwd.h:
 
 /usr/include/c++/13/utility:
+
+/usr/local/include/Geant4/G4Fcn.hh:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
@@ -5116,6 +5343,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/c++/13/csignal:
 
 /usr/local/include/Geant4/G4LogicalVolume.hh:
+
+/usr/local/include/Geant4/G4AnalysisVerbose.hh:
 
 /usr/include/c++/13/condition_variable:
 
@@ -5245,6 +5474,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/bits/stl_tree.h:
 
+/usr/local/include/Geant4/G4VTBaseHnManager.hh:
+
 /usr/local/include/Geant4/CLHEP/Random/RanecuEngine.h:
 
 /usr/include/c++/13/bits/atomic_futex.h:
@@ -5289,6 +5520,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
+/usr/local/include/Geant4/G4VAnalysisManager.icc:
+
 /usr/include/c++/13/bits/parse_numbers.h:
 
 /usr/include/linux/errno.h:
@@ -5313,6 +5546,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/include/c++/13/bits/regex.tcc:
 
+/usr/local/include/Geant4/tools/histo/base_histo:
+
 /usr/include/c++/13/unordered_map:
 
 /usr/include/c++/13/bits/allocator.h:
@@ -5320,6 +5555,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/G4Trap.icc:
 
 /usr/include/c++/13/bits/regex_compiler.tcc:
+
+/usr/local/include/Geant4/G4THnMessenger.icc:
 
 /usr/local/include/Geant4/G4VSceneHandler.hh:
 
@@ -5432,6 +5669,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/c++/13/initializer_list:
 
 /usr/include/c++/13/bits/stl_stack.h:
+
+/usr/local/include/Geant4/G4THnToolsManager.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
 
@@ -5580,6 +5819,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /usr/lib/llvm-18/lib/clang/18/include/__stddef_size_t.h:
+
+/usr/local/include/Geant4/G4THnManager.hh:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -5821,6 +6062,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/lib/llvm-18/lib/clang/18/include/limits.h:
 
+/usr/local/include/Geant4/G4AnalysisManagerState.hh:
+
 /usr/local/include/Geant4/G4OpenGLStoredX.hh:
 
 /usr/include/c++/13/tr1/modified_bessel_func.tcc:
@@ -5851,6 +6094,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 
 /usr/local/include/Geant4/CLHEP/Random/RandBit.icc:
 
+/usr/local/include/Geant4/tools/histo/h2d:
+
 /usr/local/include/Geant4/G4SteppingManager.hh:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
@@ -5860,6 +6105,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/CLHEP/Random/Random.h:
 
 /usr/local/include/Geant4/CLHEP/Random/RanluxppEngine.h:
+
+/usr/local/include/Geant4/tools/histo/p2d:
 
 /usr/local/include/Geant4/CLHEP/Vector/Rotation.h:
 
@@ -5914,6 +6161,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/CLHEP/Random/RandomEngine.h:
 
 /usr/local/include/Geant4/CLHEP/Random/Ranlux64Engine.h:
+
+/usr/local/include/Geant4/tools/histo/h1d:
 
 /usr/local/include/Geant4/CLHEP/Random/RanshiEngine.h:
 
@@ -5984,6 +6233,8 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: /home/giulio/GEANT4/workspace/SAD/s
 /usr/local/include/Geant4/FTFP_BERT_HP.hh:
 
 /usr/local/include/Geant4/G4ASCIITree.hh:
+
+/usr/local/include/Geant4/G4BaseAnalysisManager.hh:
 
 /usr/include/c++/13/bits/unique_lock.h:
 
