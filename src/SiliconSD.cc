@@ -55,9 +55,16 @@ void SiliconSD::Initialize(G4HCofThisEvent* hce)
     = new SiliconHitsCollection(SensitiveDetectorName, collectionName[0]);
 
   // Add this collection in hce
-  auto hcID
-    = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-  hce->AddHitsCollection( hcID, fHitsCollection );
+ // auto hcID
+   // = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+ // hce->AddHitsCollection( hcID, fHitsCollection );
+ if (fHCID < 0) {
+  fHCID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+}
+hce->AddHitsCollection(fHCID, fHitsCollection);
+
+
+
 
   // Create hits
   // fNofCells for cells + one more for total sums

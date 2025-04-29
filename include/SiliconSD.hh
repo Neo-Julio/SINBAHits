@@ -64,6 +64,7 @@ class SiliconSD : public G4VSensitiveDetector
 
   private:
     SiliconHitsCollection* fHitsCollection = nullptr;
+    G4int fHCID = -1;  // <-- Declare it here
 };
 
 

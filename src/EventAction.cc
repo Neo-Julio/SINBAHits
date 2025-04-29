@@ -88,11 +88,16 @@ void EventAction::BeginOfEventAction(const G4Event* /*event*/)
 
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-  // Get hits collections IDs (only once)
-  if ( fAbsHCID == -1 ) {
-    fAbsHCID
-      = G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
 
+  if (fAbsHCID == -1) {
+    auto mgr = G4SDManager::GetSDMpointer();
+    fAbsHCID = mgr->GetCollectionID("SiliconHitsCollection");
+    if (fAbsHCID == -1) {
+      G4Exception("EventAction::EndOfEventAction",
+                  "MyCode001", JustWarning,
+                  "SiliconHitsCollection not found in SDManager.");
+      return;
+    }
   }
 
   // Get hits collections

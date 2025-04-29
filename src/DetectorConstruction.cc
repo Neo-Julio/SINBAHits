@@ -167,9 +167,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Associate the sensitive detector with the logical volume
 
   //
-  logicDetector->SetSensitiveDetector(siliconSD);
+ logicDetector->SetSensitiveDetector(siliconSD);
   //always return the physical World
-  G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
+ // G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
   //
   return physWorld;
 }

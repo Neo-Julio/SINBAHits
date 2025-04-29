@@ -75,7 +75,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   // In order to avoid dependence of PrimaryGeneratorAction
   // on DetectorConstruction class we get Envelope volume
   // from G4LogicalVolumeStore.
-  G4double sourceRadius = 1 * um;
+  G4double sourceRadius = 10 * um;
   G4double r = sourceRadius * std::cbrt(G4UniformRand());  // uniform in volume
   G4double theta = std::acos(1.0 - 2.0 * G4UniformRand());
   G4double phi = 2.0 * CLHEP::pi * G4UniformRand();

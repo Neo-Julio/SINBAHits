@@ -41,7 +41,6 @@
 
 #include "Randomize.hh"
 
-using namespace B1;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -63,6 +62,9 @@ int main(int argc,char** argv)
   //
   auto runManager =
     G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+
+
+    runManager->SetNumberOfThreads(4);
 
   // Set mandatory initialization classes
   //

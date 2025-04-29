@@ -41,6 +41,9 @@ G4ThreadLocal G4Allocator<SiliconHit>* SiliconHitAllocator = nullptr;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+
+
+
 G4bool SiliconHit::operator==(const SiliconHit& right) const
 {
   return ( this == &right ) ? true : false;
