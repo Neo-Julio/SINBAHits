@@ -110,36 +110,36 @@ void EventAction::EndOfEventAction(const G4Event* event)
     G4cout << "No hits in this event." << G4endl;
     return;  // or handle the case as needed
   }
-  auto absoHit = (*absoHC)[absoHC->entries()-1];
-
+ // auto absoHit = (*absoHC)[absoHC->entries()-1];
+auto absoHit = (*absoHC)[0];
   // Print per event (modulo n)
   //
   auto eventID = event->GetEventID();
   auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
   if ( ( printModulo > 0 ) && ( eventID % printModulo == 0 ) ) {
     PrintEventStatistics(
-      absoHit->GetEdep(), absoHit->GetTrackLength());
+    absoHit->GetEdep(), absoHit->GetTrackLength());
     G4cout << "--> End of event: " << eventID << "\n" << G4endl;      
   }
 
   // Fill histograms, ntuple
   //
-/*
+
   // get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
 
   // fill histograms
   analysisManager->FillH1(0, absoHit->GetEdep());
-  analysisManager->FillH1(1, gapHit->GetEdep());
-  analysisManager->FillH1(2, absoHit->GetTrackLength());
-  analysisManager->FillH1(3, gapHit->GetTrackLength());
+//  analysisManager->FillH1(1, gapHit->GetEdep());
+//  analysisManager->FillH1(2, absoHit->GetTrackLength());
+//  analysisManager->FillH1(3, gapHit->GetTrackLength());
 
   // fill ntuple
   analysisManager->FillNtupleDColumn(0, absoHit->GetEdep());
-  analysisManager->FillNtupleDColumn(1, gapHit->GetEdep());
-  analysisManager->FillNtupleDColumn(2, absoHit->GetTrackLength());
-  analysisManager->FillNtupleDColumn(3, gapHit->GetTrackLength());
-  analysisManager->AddNtupleRow();*/
+//  analysisManager->FillNtupleDColumn(1, gapHit->GetEdep());
+//  analysisManager->FillNtupleDColumn(2, absoHit->GetTrackLength());
+//  analysisManager->FillNtupleDColumn(3, gapHit->GetTrackLength());
+  analysisManager->AddNtupleRow();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

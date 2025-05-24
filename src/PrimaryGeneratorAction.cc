@@ -55,7 +55,7 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
     = particleTable->FindParticle(particleName="alpha");
   fParticleGun->SetParticleDefinition(particle);
   //fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  fParticleGun->SetParticleEnergy(1.*MeV);
+  fParticleGun->SetParticleEnergy(5.*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -97,7 +97,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4double dz = std::cos(theta_dir);
 
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(dx, dy, dz));
-
+  fParticleGun->SetParticleEnergy(5.0 * MeV); 
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 

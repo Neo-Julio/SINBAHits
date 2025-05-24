@@ -64,7 +64,7 @@ int main(int argc,char** argv)
     G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 
 
-    runManager->SetNumberOfThreads(4);
+    runManager->SetNumberOfThreads(1);
 
   // Set mandatory initialization classes
   //
@@ -91,7 +91,7 @@ int main(int argc,char** argv)
 
   // Get the pointer to the User Interface manager
   auto UImanager = G4UImanager::GetUIpointer();
- // UImanager -> ApplyCommand("/control/macroPath /home/giulio/GEANT4/workspace/SAD/InputFiles");
+  UImanager -> ApplyCommand("/control/macroPath /home/giulio/GEANT4/workspace/SAD/InputFiles");
 
   // Process macro or start UI session
   //

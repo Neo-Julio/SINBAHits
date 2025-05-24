@@ -430,4 +430,7 @@ CMakeFiles/SimpleSad.dir/src/SiliconSD.cc.o: \
   /usr/local/include/Geant4/G4THitsCollection.hh \
   /usr/local/include/Geant4/G4SDManager.hh \
   /usr/local/include/Geant4/G4HCtable.hh \
-  /usr/local/include/Geant4/G4SDStructure.hh
+  /usr/local/include/Geant4/G4SDStructure.hh \
+  /usr/local/include/Geant4/G4SystemOfUnits.hh \
+  /usr/local/include/Geant4/G4UnitsTable.hh \
+  /usr/local/include/Geant4/G4UnitsTable.icc

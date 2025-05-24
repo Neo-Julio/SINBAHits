@@ -48,6 +48,13 @@
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+DetectorConstruction::DetectorConstruction()
+    : G4VUserDetectorConstruction(),
+      fLogicDetector(nullptr)
+{
+    // Nothing here, or pre-SD logic if you want
+}
+
 
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
@@ -111,11 +118,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 		G4VSolid* solidDetector = new G4IntersectionSolid("solidDetector", solidTube, solidBox);
 		G4double SilDetPos =  SiliconThickness/2 + SADSample;
 
-		G4LogicalVolume* logicDetector = new G4LogicalVolume(solidDetector,Si_mat,"logicDetector");
+		fLogicDetector= new G4LogicalVolume(solidDetector,Si_mat,"logicDetector");
 
 		 G4PVPlacement* physDetector = new G4PVPlacement(0,      					//no rotation
 		         		G4ThreeVector(0.,0., SilDetPos),                                                          //   G4ThreeVector(0.,0.,DetectorSampleDistance),  	//position
-		       			 logicDetector,					//its logical volume
+		       			 fLogicDetector,					//its logical volume
 		        		"Detector",						//its name
 		        		logicWorld, 					//its mother  volume
 		        		false,						//no boolean operation
@@ -159,21 +166,37 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //G4SDManager::GetSDMpointer()->AddNewDetector(absoSD);
 
 
-  SiliconSD* siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
+//  SiliconSD* siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
 
   // Register the sensitive detector with Geant4's SDManager
-  G4SDManager* SDman = G4SDManager::GetSDMpointer();
-  SDman->AddNewDetector(siliconSD);
+ // G4SDManager* SDman = G4SDManager::GetSDMpointer();
+  //SDman->AddNewDetector(siliconSD);
   // Associate the sensitive detector with the logical volume
 
   //
- logicDetector->SetSensitiveDetector(siliconSD);
+
   //always return the physical World
  // G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
   //
   return physWorld;
 }
+void DetectorConstruction::ConstructSDandField()
+{
+    // Create a new instance of your sensitive detector for this thread
+    auto siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
 
+    // Register it with the SD manager
+    G4SDManager::GetSDMpointer()->AddNewDetector(siliconSD);
+
+    // Attach it to the logical volume (previously stored during Construct())
+    if (fLogicDetector) {
+        fLogicDetector->SetSensitiveDetector(siliconSD);
+    } else {
+        G4Exception("DetectorConstruction::ConstructSDandField()",
+                    "MyCode001", JustWarning,
+                    "fLogicDetector is null — can't attach SD.");
+    }
+}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 

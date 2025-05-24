@@ -1,18 +1,19 @@
 
 # Controllo del livello di output sul terminale
-/control/verbose 0
-/run/verbose 0
-/tracking/verbose 0
+/control/verbose 2
+/run/verbose 2
+/tracking/verbose 2
 
 
 # Inizio simulazione
 /run/initialize 
+/gun/particle alpha
 
 # Set dei numeri casuali
 /random/setSeeds 38436423 23429982345
 
 # Chiamata del .mac dove sono contenuti i comandi per la generazione delle particelle primarie
-/control/execute alpha_source.mac
+#/control/execute alpha_source.mac
 # input_flux_EAR1_1_to_20_MeV.mac
 
 

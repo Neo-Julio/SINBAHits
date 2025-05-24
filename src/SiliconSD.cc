@@ -32,15 +32,17 @@
 #include "G4Step.hh"
 #include "G4ThreeVector.hh"
 #include "G4SDManager.hh"
+#include "G4SystemOfUnits.hh"
 #include "G4ios.hh"
-
+#include "G4UnitsTable.hh"
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 SiliconSD::SiliconSD(const G4String& name, const G4String& hitsCollectionName)
                            
- : G4VSensitiveDetector(name)
+ : G4VSensitiveDetector(name),
+      fHCID(-1)  
   
 {
   collectionName.insert(hitsCollectionName);
@@ -53,7 +55,8 @@ void SiliconSD::Initialize(G4HCofThisEvent* hce)
   // Create hits collection
   fHitsCollection
     = new SiliconHitsCollection(SensitiveDetectorName, collectionName[0]);
-
+G4cout << "SiliconSD::Initialize called. CollectionName: " << collectionName[0] << G4endl;
+G4cout << "[DEBUG] SiliconSD Initialized. Collection name: " << GetName() << G4endl;
   // Add this collection in hce
  // auto hcID
    // = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
@@ -62,10 +65,6 @@ void SiliconSD::Initialize(G4HCofThisEvent* hce)
   fHCID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
 }
 hce->AddHitsCollection(fHCID, fHitsCollection);
-
-
-
-
   // Create hits
   // fNofCells for cells + one more for total sums
   //for (G4int i=0; i<fNofCells+1; i++ ) {
@@ -81,14 +80,28 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
   // energy deposit
   auto edep = step->GetTotalEnergyDeposit();
 
+
+  if (edep < 1*CLHEP::keV) {
+    auto particle = step->GetTrack()->GetParticleDefinition();
+    G4String pname = particle->GetParticleName();
+    G4int pdgCode = particle->GetPDGEncoding();
+    G4cout << "[DEBUG] Small edep hit: "
+           << "Particle = " << pname
+           << ", PDG = " << pdgCode
+           << ", Edep = " << G4BestUnit(edep, "Energy")
+           << G4endl;
+    return false;  // Ignore hit but still report info
+  }
+
+
   // step length
   G4double stepLength = 0.;
   if ( step->GetTrack()->GetDefinition()->GetPDGCharge() != 0. ) {
     stepLength = step->GetStepLength();
   }
-
-  if ( edep==0. && stepLength == 0. ) return false;
-
+ G4cout << "[DEBUG] ProcessHits called. edep = " << edep << " stepLength = " << stepLength << G4endl;
+  //if ( edep==0. && stepLength == 0. ) return false;
+ if ( edep == 0. ) return false;  // safer
   auto touchable = (step->GetPreStepPoint()->GetTouchable());
 
   // Get calorimeter cell id
@@ -106,6 +119,40 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
 
   return true;
 }
+/*G4bool SiliconSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
+{
+    // Get energy deposited
+    G4double edep = aStep->GetTotalEnergyDeposit();
+
+    // Ignore steps with no energy deposition
+    if (edep <= 0.) return false;
+
+    // Get step length (only for charged particles)
+    G4double stepLength = 0.;
+    if (aStep->GetTrack()->GetDefinition()->GetPDGCharge() != 0.)
+        stepLength = aStep->GetStepLength();
+
+    // Debug print
+    G4cout << "[SiliconSD::ProcessHits] Edep = " << G4BestUnit(edep, "Energy")
+           << ", StepLength = " << G4BestUnit(stepLength, "Length") << G4endl;
+
+    // Reuse or create first hit
+    SiliconHit* hit = nullptr;
+
+    // Use a single hit per event for total accumulation
+    if (fHitsCollection->entries() == 0) {
+        hit = new SiliconHit();
+        fHitsCollection->insert(hit);
+    } else {
+        hit = (*fHitsCollection)[0];
+    }
+
+    // Accumulate edep and track length
+    hit->Add(edep, stepLength);
+
+    return true;
+}*/
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

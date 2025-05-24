@@ -43,15 +43,14 @@ class G4LogicalVolume;
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
   public:
-    DetectorConstruction() = default;
+     DetectorConstruction() ;
     ~DetectorConstruction() override = default;
 
     G4VPhysicalVolume* Construct() override;
+    virtual void ConstructSDandField() override;  // <-- ADD THIS
 
-    G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
-
-  protected:
-    G4LogicalVolume* fScoringVolume = nullptr;
+  private:
+    G4LogicalVolume* fLogicDetector;  // <-- Store pointer to Si detector logical volume
 };
 
 
