@@ -75,18 +75,15 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   // In order to avoid dependence of PrimaryGeneratorAction
   // on DetectorConstruction class we get Envelope volume
   // from G4LogicalVolumeStore.
-  G4double sourceRadius = 10 * um;
-  G4double r = sourceRadius * std::cbrt(G4UniformRand());  // uniform in volume
-  G4double theta = std::acos(1.0 - 2.0 * G4UniformRand());
-  G4double phi = 2.0 * CLHEP::pi * G4UniformRand();
-  
-  G4double x = r * std::sin(theta) * std::cos(phi);
-  G4double y = r * std::sin(theta) * std::sin(phi);
-  G4double z = 1*cm + r * std::cos(theta);
+  G4double sourceRadius = 3.5 * mm;
+// Polar coordinates (r, phi) for uniform disk surface
+G4double r   = sourceRadius * std::sqrt(G4UniformRand());  // √ for uniform area
+G4double phi = 2.0 * CLHEP::pi * G4UniformRand();
 
-
-  fParticleGun->SetParticlePosition(G4ThreeVector(x,y,z));
-
+// Cartesian coordinates in the XY plane
+G4double x = r * std::cos(phi);
+G4double y = r * std::sin(phi);
+G4double z = 0.0 * cm;  // Place the circle at z = 1 cm, or whatever you need
   
   // Isotropic direction
   G4double theta_dir = std::acos(1.0 - 2.0 * G4UniformRand());
@@ -95,7 +92,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4double dx = std::sin(theta_dir) * std::cos(phi_dir);
   G4double dy = std::sin(theta_dir) * std::sin(phi_dir);
   G4double dz = std::cos(theta_dir);
-
+  
+  fParticleGun->SetParticlePosition(G4ThreeVector(x, y, z));
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(dx, dy, dz));
   fParticleGun->SetParticleEnergy(5.0 * MeV); 
   fParticleGun->GeneratePrimaryVertex(anEvent);

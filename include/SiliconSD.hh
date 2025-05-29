@@ -56,6 +56,7 @@ class SiliconSD : public G4VSensitiveDetector
             
                   );
     ~SiliconSD() override = default;
+    SiliconHit* FindHitByTrackID(G4int trackID);
 
     // methods from base class
     void   Initialize(G4HCofThisEvent* hitCollection) override;

@@ -88,7 +88,6 @@ void EventAction::BeginOfEventAction(const G4Event* /*event*/)
 
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-
   if (fAbsHCID == -1) {
     auto mgr = G4SDManager::GetSDMpointer();
     fAbsHCID = mgr->GetCollectionID("SiliconHitsCollection");
@@ -100,45 +99,42 @@ void EventAction::EndOfEventAction(const G4Event* event)
     }
   }
 
-  // Get hits collections
   auto absoHC = GetHitsCollection(fAbsHCID, event);
-
-
-  // Get hit with total values
-
-  if (absoHC->entries() == 0) {
+  if (!absoHC || absoHC->entries() == 0) {
     G4cout << "No hits in this event." << G4endl;
-    return;  // or handle the case as needed
+    return;
   }
- // auto absoHit = (*absoHC)[absoHC->entries()-1];
-auto absoHit = (*absoHC)[0];
-  // Print per event (modulo n)
-  //
+
+  // Sum over all hits
+  G4double totalEdep = 0.;
+  G4double totalTrackLength = 0.;
+
+  for (G4int i = 0; i < absoHC->entries(); ++i) {
+    auto* hit = (*absoHC)[i];
+    totalEdep += hit->GetEdep();
+    totalTrackLength += hit->GetTrackLength();
+  }
+
+  // Skip events with zero total energy deposition
+  if (totalEdep <= 0.) {
+    G4cout << "No energy deposited in this event." << G4endl;
+    return;
+  }
+
+  // Print event stats (if needed)
   auto eventID = event->GetEventID();
   auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
-  if ( ( printModulo > 0 ) && ( eventID % printModulo == 0 ) ) {
-    PrintEventStatistics(
-    absoHit->GetEdep(), absoHit->GetTrackLength());
-    G4cout << "--> End of event: " << eventID << "\n" << G4endl;      
+  if ((printModulo > 0) && (eventID % printModulo == 0)) {
+    PrintEventStatistics(totalEdep, totalTrackLength);
+    G4cout << "--> End of event: " << eventID << "\n" << G4endl;
   }
 
-  // Fill histograms, ntuple
-  //
-
-  // get analysis manager
+  // Fill histograms & ntuple
   auto analysisManager = G4AnalysisManager::Instance();
-
-  // fill histograms
-  analysisManager->FillH1(0, absoHit->GetEdep());
-//  analysisManager->FillH1(1, gapHit->GetEdep());
-//  analysisManager->FillH1(2, absoHit->GetTrackLength());
-//  analysisManager->FillH1(3, gapHit->GetTrackLength());
-
-  // fill ntuple
-  analysisManager->FillNtupleDColumn(0, absoHit->GetEdep());
-//  analysisManager->FillNtupleDColumn(1, gapHit->GetEdep());
-//  analysisManager->FillNtupleDColumn(2, absoHit->GetTrackLength());
-//  analysisManager->FillNtupleDColumn(3, gapHit->GetTrackLength());
+  analysisManager->FillH1(0, totalEdep);
+  analysisManager->FillH1(1, totalTrackLength);
+  analysisManager->FillNtupleDColumn(0, totalEdep);
+  analysisManager->FillNtupleDColumn(1, totalTrackLength);
   analysisManager->AddNtupleRow();
 }
 

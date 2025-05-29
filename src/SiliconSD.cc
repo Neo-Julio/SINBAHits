@@ -48,15 +48,27 @@ SiliconSD::SiliconSD(const G4String& name, const G4String& hitsCollectionName)
   collectionName.insert(hitsCollectionName);
 }
 
+
+SiliconHit* SiliconSD::FindHitByTrackID(G4int trackID)
+{
+    G4int nHits = fHitsCollection->entries();
+    for (G4int i = 0; i < nHits; i++) {
+        auto hit = (*fHitsCollection)[i];
+        if (hit->GetTrackID() == trackID) {
+            return hit;
+        }
+    }
+    return nullptr;
+}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void SiliconSD::Initialize(G4HCofThisEvent* hce)
 {
   // Create hits collection
   fHitsCollection
-    = new SiliconHitsCollection(SensitiveDetectorName, collectionName[0]);
-G4cout << "SiliconSD::Initialize called. CollectionName: " << collectionName[0] << G4endl;
-G4cout << "[DEBUG] SiliconSD Initialized. Collection name: " << GetName() << G4endl;
+  = new SiliconHitsCollection(SensitiveDetectorName, collectionName[0]);
+  G4cout << "SiliconSD::Initialize called. CollectionName: " << collectionName[0] << G4endl;
+  G4cout << "[DEBUG] SiliconSD Initialized. Collection name: " << GetName() << G4endl;
   // Add this collection in hce
  // auto hcID
    // = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
@@ -77,25 +89,36 @@ hce->AddHitsCollection(fHCID, fHitsCollection);
 G4bool SiliconSD::ProcessHits(G4Step* step,
                                      G4TouchableHistory*)
 {
+    // Only care if particle enters the volume
+    auto preStep = step->GetPreStepPoint();
+    if (preStep->GetStepStatus() != fGeomBoundary) return false;
+
   // energy deposit
   auto edep = step->GetTotalEnergyDeposit();
 
 
-  if (edep < 1*CLHEP::keV) {
-    auto particle = step->GetTrack()->GetParticleDefinition();
-    G4String pname = particle->GetParticleName();
-    G4int pdgCode = particle->GetPDGEncoding();
-    G4cout << "[DEBUG] Small edep hit: "
-           << "Particle = " << pname
-           << ", PDG = " << pdgCode
-           << ", Edep = " << G4BestUnit(edep, "Energy")
-           << G4endl;
-    return false;  // Ignore hit but still report info
-  }
-
-
-  // step length
-  G4double stepLength = 0.;
+  if (edep == 0) return false;
+   
+  G4int trackID = step->GetTrack()->GetTrackID();
+ 
+ SiliconHit* hit = FindHitByTrackID(trackID);
+    if (!hit) {
+        hit = new SiliconHit();
+        hit->SetTrackID(trackID);
+        fHitsCollection->insert(hit);
+    } 
+ 
+       hit->Add(edep, step->GetStepLength());
+ 
+   return true;
+}
+ 
+ 
+ 
+ 
+ 
+  // step length Calo Implementation (Total QUantities)
+ /* G4double stepLength = 0.;
   if ( step->GetTrack()->GetDefinition()->GetPDGCharge() != 0. ) {
     stepLength = step->GetStepLength();
   }
@@ -114,11 +137,10 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
  
 
   // Add values
-  hit->Add(edep, stepLength);
+  hit->Add(edep, stepLength);*/
 
 
-  return true;
-}
+
 /*G4bool SiliconSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 {
     // Get energy deposited

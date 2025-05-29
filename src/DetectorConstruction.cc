@@ -63,6 +63,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material* Vacuum_mat = nist->FindOrBuildMaterial("G4_Galactic");
   G4Material* Si_mat = nist->FindOrBuildMaterial("G4_Si"); 
   G4Material* Al_mat = nist->FindOrBuildMaterial("G4_Al"); 
+  G4Material* Steel_mat = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL"); 
 
   // Option to switch on/off checking of volumes overlaps
   //
@@ -92,7 +93,37 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
             0,                     //copy number
             checkOverlaps);        //overlaps checking
   
-  //Annular detector
+ 
+ 
+ //Source Holder 
+
+   	//--- Geometry
+  		
+  		// Holder
+      G4double tube_dPhi = 2.* M_PI * rad;
+  		G4double HolderThickness = 10*mm;
+  		G4double HolderInnerDiameter = 10*mm;
+  		G4double HolderOuterDiameter = 50*mm;
+ 
+//--- Holder in (0,0,0)
+
+		G4VSolid* solidHolder = new G4Tubs("solidTube", HolderInnerDiameter/2., HolderOuterDiameter/2., HolderThickness/2., 0., tube_dPhi);
+
+		G4LogicalVolume* logicHolder = new G4LogicalVolume(solidHolder,Steel_mat,"logicHolder",0,0,0);
+
+		new G4PVPlacement(0,      					//no rotation
+			        G4ThreeVector(0.,0.,0),  	//position
+			        logicHolder,					//its logical volume
+			        "Holder",						//its name
+			        logicWorld, 					//its mother  volume
+			        false,						//no boolean operation
+			        0,							//copy number
+			        checkOverlaps);					//overlaps checking
+		
+
+
+
+      //Annular detector
 
   
 //------------------------------------------------------------------------------//
@@ -102,7 +133,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 		//-------------------------FIRST ANNULAR DL ON XY plane-----------------------//
 		
 			// Silicon Annular
-			G4double tube_dPhi = 2.* M_PI * rad;
+		
 			G4double SiliconInnerRadius = 2.4*cm;
 			G4double SiliconOuterRadius = 4.8*cm;
 			G4double SiliconThickness = 305.*um;
@@ -180,6 +211,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //
   return physWorld;
 }
+
 void DetectorConstruction::ConstructSDandField()
 {
     // Create a new instance of your sensitive detector for this thread

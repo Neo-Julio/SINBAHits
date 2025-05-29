@@ -61,11 +61,19 @@ class SiliconHit : public G4VHit
     // get methods
     G4double GetEdep() const;
     G4double GetTrackLength() const;
+    //TrackID
+    // Getter
+    G4int GetTrackID() const { return fTrackID; }
+    // Setter
+    void SetTrackID(G4int id) { fTrackID = id; }
+
+    
 
   private:
     G4double fEdep = 0.;        ///< Energy deposit in the sensitive volume
     G4double fTrackLength = 0.; ///< Track length in the  sensitive volume
-};
+    G4int fTrackID;
+  };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
