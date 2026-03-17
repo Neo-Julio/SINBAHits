@@ -66,16 +66,20 @@ RunAction::RunAction()
    //
  
    // Creating histograms
-   analysisManager->CreateH1("Eabs","Edep in absorber", 110, 0., 6*MeV);//0
-   analysisManager->CreateH1("Labs","trackL in absorber", 100, 0., 50*cm);//1
+  // analysisManager->CreateH1("Eabs","Edep in absorber", 110, 0., 6*MeV);//0
+  // analysisManager->CreateH1("Labs","trackL in absorber", 100, 0., 50*cm);//1
 
  
    // Creating ntuple
    //
-   analysisManager->CreateNtuple("B4", "Edep and TrackL");
-   analysisManager->CreateNtupleDColumn("Eabs");
-   analysisManager->CreateNtupleDColumn("Labs");
-   analysisManager->FinishNtuple();
+  analysisManager->CreateNtuple("B4", "Edep and TrackL");
+  analysisManager->CreateNtupleDColumn("Eabs");
+  analysisManager->CreateNtupleDColumn("Labs");
+  analysisManager->CreateNtupleDColumn("TrackID");
+  analysisManager->CreateNtupleDColumn("DetNum");
+  analysisManager->CreateNtupleDColumn("EventID");
+  analysisManager->CreateNtupleDColumn("PID");  
+  analysisManager->FinishNtuple();
  }
  
  
