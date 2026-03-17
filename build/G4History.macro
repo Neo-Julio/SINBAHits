@@ -9,7 +9,6 @@
 /vis/verbose errors
 /vis/viewer/set/background white
 /vis/geometry/set/colour logicDetector 1 0 0.73 1
-/vis/scene/notifyHandlers
 /vis/drawVolume
 /vis/scene/create
 /vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
@@ -49,3 +48,40 @@
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh
 /vis/verbose warnings
+/run/beamOn 10
+/analysis/h1/getVector
+/analysis/h2/getVector
+/vis/set/touchable World 0 AirBox 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/touchable/set/daughtersInvisible true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 AirBox 0
+/vis/touchable/set/daughtersInvisible false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/run/beamOn 100
+/analysis/h1/getVector
+/analysis/h2/getVector
+/vis/set/touchable World 0 AirBox 0 SiBoxADL 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 AirBox 0 SiBoxBDL 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 AirBox 0 SiBoxCDL 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 AirBox 0 SiBoxDDL 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 DetectorDL 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers

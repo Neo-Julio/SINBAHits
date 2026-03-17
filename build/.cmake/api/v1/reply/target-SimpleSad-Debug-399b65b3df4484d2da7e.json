@@ -73,7 +73,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 385,
+				"line" : 395,
 				"parent" : 7
 			},
 			{
@@ -102,6 +102,12 @@
 				"command" : 3,
 				"file" : 1,
 				"line" : 175,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 235,
 				"parent" : 7
 			},
 			{
@@ -199,7 +205,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 16,
+					"backtrace" : 17,
 					"path" : "/home/giulio/GEANT4/workspace/SAD/include"
 				},
 				{
@@ -355,6 +361,11 @@
 			},
 			{
 				"backtrace" : 3,
+				"fragment" : "/usr/local/lib/libG4gdml.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
 				"fragment" : "/usr/local/lib/libG4error_propagation.so",
 				"role" : "libraries"
 			},
@@ -479,12 +490,17 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 14,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libxerces-c.so",
+				"role" : "libraries"
+			},
+			{
 				"backtrace" : 3,
 				"fragment" : "/usr/local/lib/libG4analysis.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 14,
+				"backtrace" : 15,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libexpat.so",
 				"role" : "libraries"
 			},
@@ -509,7 +525,7 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 15,
+				"backtrace" : 16,
 				"fragment" : "/usr/local/lib/libG4ptl.so.2.3.3",
 				"role" : "libraries"
 			}

@@ -66,6 +66,10 @@ class SiliconHit : public G4VHit
     G4int GetTrackID() const { return fTrackID; }
     // Setter
     void SetTrackID(G4int id) { fTrackID = id; }
+    // Getter
+    G4int GetDetNum() const { return fDetNum; }
+    // Setter
+    void SetDetNum(G4int id) { fDetNum = id; }
 
     
 
@@ -73,6 +77,7 @@ class SiliconHit : public G4VHit
     G4double fEdep = 0.;        ///< Energy deposit in the sensitive volume
     G4double fTrackLength = 0.; ///< Track length in the  sensitive volume
     G4int fTrackID;
+    G4int fDetNum = -1; ///< Detector number (0 for annular, 1-4 for boxes)
   };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

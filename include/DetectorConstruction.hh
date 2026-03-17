@@ -32,7 +32,7 @@
 
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
-
+#include <vector>
 class G4VPhysicalVolume;
 class G4LogicalVolume;
 
@@ -50,7 +50,8 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     virtual void ConstructSDandField() override;  // <-- ADD THIS
 
   private:
-    G4LogicalVolume* fLogicDetector;  // <-- Store pointer to Si detector logical volume
+  //  G4LogicalVolume* fLogicDetector0;  // <-- Store pointer to Si detector logical volume
+    std::vector<G4LogicalVolume*> fLogicDetectors;
 };
 
 

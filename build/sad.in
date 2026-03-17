@@ -6,7 +6,7 @@
 
 
 # Inizio simulazione
-#/run/initialize 
+/run/initialize 
 /gun/particle neutron
 
 # Set dei numeri casuali
@@ -25,7 +25,8 @@
 
 #input_flux_EAR1_1_to_20_MeV.mac
 
-#/run/beamOn 100000
+
+/run/beamOn 100000
 # 10000000 #bias 1000 10^10 totale 
 # 3357770 #neutrons in half a day EAR2 MeV to GeV bias 100000
 

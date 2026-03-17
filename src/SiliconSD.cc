@@ -39,6 +39,7 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+
 SiliconSD::SiliconSD(const G4String& name, const G4String& hitsCollectionName)
                            
  : G4VSensitiveDetector(name),
@@ -49,12 +50,14 @@ SiliconSD::SiliconSD(const G4String& name, const G4String& hitsCollectionName)
 }
 
 
-SiliconHit* SiliconSD::FindHitByTrackID(G4int trackID)
+SiliconHit* SiliconSD::FindHit(G4int trackID, G4int detNum)
 {
     G4int nHits = fHitsCollection->entries();
     for (G4int i = 0; i < nHits; i++) {
         auto hit = (*fHitsCollection)[i];
-        if (hit->GetTrackID() == trackID) {
+        if (hit->GetTrackID() == trackID &&
+            hit->GetDetNum()  == detNum)  // 👈 importante!
+        {
             return hit;
         }
     }
@@ -88,30 +91,76 @@ hce->AddHitsCollection(fHCID, fHitsCollection);
 
 G4bool SiliconSD::ProcessHits(G4Step* step,
                                      G4TouchableHistory*)
-{
-    // Only care if particle enters the volume
-    auto preStep = step->GetPreStepPoint();
-    if (preStep->GetStepStatus() != fGeomBoundary) return false;
+  {
+    // Energy deposit
+    auto edep = step->GetTotalEnergyDeposit();
+    if (edep <= 0.) return false;
 
-  // energy deposit
-  auto edep = step->GetTotalEnergyDeposit();
+    G4int trackID = step->GetTrack()->GetTrackID();
 
+    // Identify detector
+    G4String name = step->GetPreStepPoint()
+                        ->GetTouchable()
+                        ->GetVolume()
+                        ->GetName();
 
-  if (edep == 0) return false;
-   
-  G4int trackID = step->GetTrack()->GetTrackID();
- 
- SiliconHit* hit = FindHitByTrackID(trackID);
+    G4int detNum = -1;
+
+    if (name == "Detector0") detNum = 0;
+    else if (name == "SiBoxA") detNum = 1;
+    else if (name == "SiBoxB") detNum = 2;
+    else if (name == "SiBoxC") detNum = 3;
+    else if (name == "SiBoxD") detNum = 4;
+
+    //  IMPORTANT: use trackID + detNum
+    SiliconHit* hit = FindHit(trackID, detNum);
+
     if (!hit) {
         hit = new SiliconHit();
         hit->SetTrackID(trackID);
+        hit->SetDetNum(detNum);   // 
         fHitsCollection->insert(hit);
-    } 
- 
-       hit->Add(edep, step->GetStepLength());
- 
-   return true;
+    }
+
+    // accumulate energy
+    hit->Add(edep, step->GetStepLength());
+
+    return true;
 }
+//     // Only care if particle enters the volume
+//     auto preStep = step->GetPreStepPoint();
+//   //  if (preStep->GetStepStatus() != fGeomBoundary) return false;
+
+//   // energy deposit+++++
+//   auto edep = step->GetTotalEnergyDeposit();
+//   if (edep == 0) return false;
+   
+//   G4int trackID = step->GetTrack()->GetTrackID();
+ 
+//  SiliconHit* hit = FindHitByTrackID(trackI,detNum);
+//     if (!hit) {
+//         hit = new SiliconHit();
+//         hit->SetTrackID(trackID);
+//         fHitsCollection->insert(hit);
+//     } 
+ 
+//        hit->Add(edep, step->GetStepLength());
+
+//        G4String name = step->GetPreStepPoint()
+//                       ->GetTouchable()
+//                       ->GetVolume()
+//                       ->GetName();
+
+// G4int detNum = -1;
+
+// if (name == "Detector0") detNum = 0;
+// else if (name == "SiBoxA") detNum = 1;
+// else if (name == "SiBoxB") detNum = 2;
+// else if (name == "SiBoxC") detNum = 3;
+// else if (name == "SiBoxD") detNum = 4;
+ 
+//    return true;
+// }
  
  
  

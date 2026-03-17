@@ -49,10 +49,10 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 DetectorConstruction::DetectorConstruction()
-    : G4VUserDetectorConstruction(),
-      fLogicDetector(nullptr)
+    : G4VUserDetectorConstruction()
+      //fLogicDetector0(nullptr)
 {
-    // Nothing here, or pre-SD logic if you want
+        fLogicDetectors.clear();
 }
 
 
@@ -64,6 +64,18 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material* Si_mat = nist->FindOrBuildMaterial("G4_Si"); 
   G4Material* Al_mat = nist->FindOrBuildMaterial("G4_Al"); 
   G4Material* Steel_mat = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL"); 
+
+  G4Isotope* Li7 = new G4Isotope("Li7", 3, 7);
+	G4Element* elLi7ONLY  = new G4Element("Lithium7","7Li" ,1);  
+	elLi7ONLY->AddIsotope(Li7, 100.*perCent);  // 100% Lithium-7
+	G4Material* matLi7 = new G4Material("MatLi7", 0.540 * g/cm3, 1);
+  matLi7->AddElement(elLi7ONLY, 100.*perCent);  // The material is 100% Lithium-7
+
+		//LiF with 7 Li
+	G4Element* elF  = new G4Element("Fluorine","F" , 9., 18.998*g/mole);  
+	G4Material* LiFmat = new G4Material("LiFmat",2.543*g/cm3,2);
+	LiFmat->AddElement(elF, 1);
+	LiFmat->AddElement(elLi7ONLY, 1);
 
   // Option to switch on/off checking of volumes overlaps
   //
@@ -92,124 +104,223 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
             false,                 //no boolean operation
             0,                     //copy number
             checkOverlaps);        //overlaps checking
-  
  
- 
- //Source Holder 
-
-   	//--- Geometry
-  		
-  		// Holder
-      G4double tube_dPhi = 2.* M_PI * rad;
-  		G4double HolderThickness = 10*mm;
-  		G4double HolderInnerDiameter = 10*mm;
-  		G4double HolderOuterDiameter = 50*mm;
- 
-//--- Holder in (0,0,0)
-
-		G4VSolid* solidHolder = new G4Tubs("solidTube", HolderInnerDiameter/2., HolderOuterDiameter/2., HolderThickness/2., 0., tube_dPhi);
-
-		G4LogicalVolume* logicHolder = new G4LogicalVolume(solidHolder,Steel_mat,"logicHolder",0,0,0);
-
-		new G4PVPlacement(0,      					//no rotation
-			        G4ThreeVector(0.,0.,0),  	//position
-			        logicHolder,					//its logical volume
-			        "Holder",						//its name
-			        logicWorld, 					//its mother  volume
-			        false,						//no boolean operation
-			        0,							//copy number
-			        checkOverlaps);					//overlaps checking
-		
-
 
 
       //Annular detector
 
-  
-//------------------------------------------------------------------------------//
-	//--- Silicon detector
-		
-  		//ANNULAR DETECTORS 
-		//-------------------------FIRST ANNULAR DL ON XY plane-----------------------//
-		
-			// Silicon Annular
-		
-			G4double SiliconInnerRadius = 2.4*cm;
-			G4double SiliconOuterRadius = 4.8*cm;
-			G4double SiliconThickness = 305.*um;
-			G4double DeadLayerThickness = 0.5*um;
-			G4double ChordToChord = 89.64*mm;		
-			G4double SADSample =5.0 *cm;
-	//------------------------------------------------------------------------------//
-
+    			// Silicon Annular
+		G4double tube_dPhi = 2.* M_PI * rad;
+		G4double SiliconInnerRadius = 2.4*cm;
+		G4double SiliconOuterRadius = 4.8*cm;
+		G4double SiliconThickness = 500.*um;
+		G4double DeadLayerThickness = 0.5*um;
+		G4double ChordToChord = 89.64*mm;		
+		G4double SADDis = 11.0 *cm;
 	
 		G4VSolid* solidTube = new G4Tubs("solidTube", SiliconInnerRadius, SiliconOuterRadius, SiliconThickness/2., 0., tube_dPhi);
-		G4VSolid* solidBox = new G4Box("solidBox", ChordToChord/2., SiliconOuterRadius, SiliconThickness/2.);
-	
-		G4VSolid* solidDetector = new G4IntersectionSolid("solidDetector", solidTube, solidBox);
-		G4double SilDetPos =  SiliconThickness/2 + SADSample;
+		G4VSolid* solidBox = new G4Box("solidBox", ChordToChord/2., SiliconOuterRadius, SiliconThickness/2.);	
+		G4VSolid* solidDetector0 = new G4IntersectionSolid("solidDetector0", solidTube, solidBox);
+		G4double SilDetPos0 =  SADDis + SiliconThickness/2;
 
-		fLogicDetector= new G4LogicalVolume(solidDetector,Si_mat,"logicDetector");
-
-		 G4PVPlacement* physDetector = new G4PVPlacement(0,      					//no rotation
-		         		G4ThreeVector(0.,0., SilDetPos),                                                          //   G4ThreeVector(0.,0.,DetectorSampleDistance),  	//position
-		       			 fLogicDetector,					//its logical volume
-		        		"Detector",						//its name
+		G4LogicalVolume* flogicDetector0 = new G4LogicalVolume(solidDetector0,Si_mat,"logicDetector0");
+    
+    	G4PVPlacement* physDetector0 = new G4PVPlacement(0,      					//no rotation
+		         		G4ThreeVector(0.,0., SilDetPos0),                                                          //   G4ThreeVector(0.,0.,DetectorSampleDistance),  	//position
+		       			 flogicDetector0,					//its logical volume
+		        		"Detector0",						//its name
 		        		logicWorld, 					//its mother  volume
 		        		false,						//no boolean operation
 		        		0,							//copy number
 		        		checkOverlaps);					//overlaps checking
 
-	//------------------------------------------------------------------------------//
+
+                	//--- Silicon dead layer
 
 
-
-	//------------------------------------------------------------------------------//
-	//--- Silicon dead layer
-
-		double DLPos = SilDetPos  -SiliconThickness/2 -	 DeadLayerThickness/2;
-		
-		G4VSolid* solidTubeDL = new G4Tubs("solidTubeDL", SiliconInnerRadius, SiliconOuterRadius, DeadLayerThickness/2., 0., tube_dPhi);
-
-		G4VSolid* solidBoxDL = new G4Box("solidBoxDL", ChordToChord/2., SiliconOuterRadius, DeadLayerThickness/2.);
-
-		G4VSolid* solidDetectorDL = new G4IntersectionSolid("solidDetectorDL", solidTubeDL, solidBoxDL);
-
-
-		G4LogicalVolume* logicDetectorDL = new G4LogicalVolume(solidDetectorDL,Al_mat,"logicDetectorDL");
-
-
-
+		double DLPos0 = SADDis - DeadLayerThickness/2. ;
+		G4VSolid* solidTubeDL0 = new G4Tubs("solidTubeDL0", SiliconInnerRadius, SiliconOuterRadius, DeadLayerThickness/2., 0., tube_dPhi);
+		G4VSolid* solidBoxDL0 = new G4Box("solidBoxDL0", ChordToChord/2., SiliconOuterRadius, DeadLayerThickness/2.);
+		G4VSolid* solidDetectorDL = new G4IntersectionSolid("solidDetectorDL", solidTubeDL0, solidBoxDL0);
+		G4LogicalVolume* logicDetectorDL0 = new G4LogicalVolume(solidDetectorDL,Al_mat,"logicDetectorDL0");
 		new G4PVPlacement(0,      					//no rotation
-			        G4ThreeVector(0.,0.,DLPos ),  	//position
-			        logicDetectorDL,					//its logical volume
+			        G4ThreeVector(0.,0.,DLPos0 ),  	//position
+			        logicDetectorDL0,					//its logical volume
 			        "DetectorDL",						//its name
 			        logicWorld, 					//its mother  volume
 			        false,						//no boolean operation
 			        0,							//copy number
 			        checkOverlaps);					//overlaps checking
- 
-  // Set Shape2 as scoring volume
-  //
-  //fScoringVolume = logicDetector;
- // auto absoSD
-  //  = new CalorimeterSD("AbsorberSD", "AbsorberHitsCollection", fNofLayers);
-  //G4SDManager::GetSDMpointer()->AddNewDetector(absoSD);
+
+  
+//------------------------------------------------------------------------------//
+
+//Square detectors
+
+// ------------------SILICON BOXES ----------------------------------/// A, B, C, D 
+
+G4double SilBoxX = 49.5 *mm;
+G4double SilBoxY = 49.5 *mm;
+G4double SilBoxZ = 400 *um; 
+
+G4double SilBoxXDL = 49.5*mm;
+G4double SilBoxYDL = 49.5*mm;
+G4double SilBoxThicknessDL = 500*nm;
 
 
-//  SiliconSD* siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
+G4double AirBoxSideZ = 49.5*mm ;
+G4double AirBoxSideY = 10*cm ;
+G4double AirBoxSiDistanceX = 4.5 *cm + SilBoxZ/2 ;
+G4double AirBoxSiDistanceY = 4.5 *cm + SilBoxZ/2 ;
+G4double AirBoxPos = 5*cm + DeadLayerThickness + SiliconThickness + AirBoxSideZ/2; 
+G4double AirBoxSiDLY = AirBoxSiDistanceY - SilBoxZ/2 - SilBoxThicknessDL/2;
+G4double AirBoxSiDLX = AirBoxSiDistanceX - SilBoxZ/2 - SilBoxThicknessDL/2;
 
-  // Register the sensitive detector with Geant4's SDManager
- // G4SDManager* SDman = G4SDManager::GetSDMpointer();
-  //SDman->AddNewDetector(siliconSD);
-  // Associate the sensitive detector with the logical volume
+//Air box on which sides the Si boxes take place 
+G4VSolid* SolidAirBox = new G4Box("AirBox",AirBoxSideY/2  , AirBoxSideY/2 , AirBoxSideZ/2);
+G4LogicalVolume* logicAirBox = new G4LogicalVolume(SolidAirBox,Vacuum_mat,"logicAirBox");
 
-  //
+new G4PVPlacement(0,      					//no rotation
+G4ThreeVector(0.,0.,AirBoxPos ),  	//position
+logicAirBox,					//its logical volume
+"AirBox",						//its name
+logicWorld, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
 
-  //always return the physical World
- // G4SDManager::GetSDMpointer()->GetCollectionID("SiliconHitsCollection");
-  //
-  return physWorld;
+//First Silicon Box  A Up 
+
+G4VSolid* SolidSiBoxA = new G4Box("SiBoxA",SilBoxX/2  , SilBoxY/2 , SilBoxZ/2 );
+G4LogicalVolume* logicSiBoxA = new G4LogicalVolume(SolidSiBoxA,Si_mat,"logicSiBoxA");
+G4RotationMatrix* rotationA = new G4RotationMatrix();
+rotationA->rotateX(90.0 * deg); // Rotate by 90 degrees
+
+new G4PVPlacement(rotationA,      					//no rotation
+G4ThreeVector(0.,AirBoxSiDistanceY,0 ),  	//position
+logicSiBoxA,					//its logical volume
+"SiBoxA",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+//Silicon Box A DL
+G4VSolid* SolidSiBoxADL = new G4Box("SiBoxADL",SilBoxXDL/2  , SilBoxYDL/2 , SilBoxThicknessDL/2 );
+G4LogicalVolume* logicSiBoxADL = new G4LogicalVolume(SolidSiBoxADL,Al_mat,"logicSiBoxADL");
+
+
+new G4PVPlacement(rotationA,      					//no rotation
+G4ThreeVector(0.,AirBoxSiDLY,0 ),  	//position
+logicSiBoxADL,					//its logical volume
+"SiBoxADL",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+//Second Silicon Box  B Down 
+
+G4VSolid* SolidSiBoxB = new G4Box("SiBoxB",SilBoxX/2  , SilBoxY/2 , SilBoxZ/2 );
+G4LogicalVolume* logicSiBoxB = new G4LogicalVolume(SolidSiBoxB,Si_mat,"logicSiBoxB");
+G4RotationMatrix* rotationB = new G4RotationMatrix();
+rotationB->rotateX(90.0 * deg); // 
+
+new G4PVPlacement(rotationB,      				
+G4ThreeVector(0.,-AirBoxSiDistanceY,0 ),  	//position
+logicSiBoxB,					//its logical volume
+"SiBoxB",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+
+
+//Silicon Box B DL
+G4VSolid* SolidSiBoxBDL = new G4Box("SiBoxBDL",SilBoxXDL/2  , SilBoxYDL/2 , SilBoxThicknessDL/2 );
+G4LogicalVolume* logicSiBoxBDL = new G4LogicalVolume(SolidSiBoxBDL,Al_mat,"logicSiBoxBDL");
+
+
+new G4PVPlacement(rotationB,      					
+G4ThreeVector(0.,-AirBoxSiDLY,0 ),  	//position
+logicSiBoxBDL,					//its logical volume
+"SiBoxBDL",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+
+
+//Third Silicon Box  C Left (negative X axis)
+
+G4VSolid* SolidSiBoxC= new G4Box("SiBoxC",SilBoxX/2  , SilBoxY/2 , SilBoxZ/2 );
+G4LogicalVolume* logicSiBoxC = new G4LogicalVolume(SolidSiBoxC,Si_mat,"logicSiBoxC");
+G4RotationMatrix* rotationC = new G4RotationMatrix();
+rotationC->rotateY(90.0 * deg); // 
+
+new G4PVPlacement(rotationC,      				
+G4ThreeVector(-AirBoxSiDistanceX,0.,0. ),  	//position
+logicSiBoxC,					//its logical volume
+"SiBoxC",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+
+
+//Silicon Box C DL
+G4VSolid* SolidSiBoxCDL = new G4Box("SiBoxCDL",SilBoxXDL/2  , SilBoxYDL/2 , SilBoxThicknessDL/2 );
+G4LogicalVolume* logicSiBoxCDL = new G4LogicalVolume(SolidSiBoxCDL,Al_mat,"logicSiBoxCDL");
+
+
+new G4PVPlacement(rotationC,      					
+G4ThreeVector(-AirBoxSiDLX,0.,0. ),  	//position
+logicSiBoxCDL,					//its logical volume
+"SiBoxCDL",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+//Fourth Silicon Box  D Left (positive X axis)
+
+G4VSolid* SolidSiBoxD= new G4Box("SiBoxD",SilBoxX/2  , SilBoxY/2 , SilBoxZ/2 );
+G4LogicalVolume* logicSiBoxD = new G4LogicalVolume(SolidSiBoxD,Si_mat,"logicSiBoxD");
+G4RotationMatrix* rotationD = new G4RotationMatrix();
+rotationD->rotateY(90.0 * deg); // 
+
+new G4PVPlacement(rotationD,      				
+G4ThreeVector(AirBoxSiDistanceX,0.,0. ),  	//position
+logicSiBoxD,					//its logical volume
+"SiBoxD",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking
+
+//Silicon Box D DL
+G4VSolid* SolidSiBoxDDL = new G4Box("SiBoxDDL",SilBoxXDL/2  , SilBoxYDL/2 , SilBoxThicknessDL/2 );
+G4LogicalVolume* logicSiBoxDDL = new G4LogicalVolume(SolidSiBoxDDL,Al_mat,"logicSiBoxDDL");
+
+
+new G4PVPlacement(rotationD,      					
+G4ThreeVector(AirBoxSiDLX,0.,0. ),  	//position
+logicSiBoxDDL,					//its logical volume
+"SiBoxDDL",						//its name
+logicAirBox, 					//its mother  volume
+false,						//no boolean operation
+0,							//copy number
+checkOverlaps);					//overlaps checking					
+
+fLogicDetectors.push_back(flogicDetector0);   // annular
+fLogicDetectors.push_back(logicSiBoxA);       // box A
+fLogicDetectors.push_back(logicSiBoxB);       // box B
+fLogicDetectors.push_back(logicSiBoxC);       // box C
+fLogicDetectors.push_back(logicSiBoxD);       // box D
+return physWorld;
 }
 
 void DetectorConstruction::ConstructSDandField()
@@ -220,14 +331,19 @@ void DetectorConstruction::ConstructSDandField()
     // Register it with the SD manager
     G4SDManager::GetSDMpointer()->AddNewDetector(siliconSD);
 
-    // Attach it to the logical volume (previously stored during Construct())
-    if (fLogicDetector) {
-        fLogicDetector->SetSensitiveDetector(siliconSD);
-    } else {
-        G4Exception("DetectorConstruction::ConstructSDandField()",
-                    "MyCode001", JustWarning,
-                    "fLogicDetector is null — can't attach SD.");
+        for (auto lv : fLogicDetectors)
+    {
+        if (lv) lv->SetSensitiveDetector(siliconSD);
     }
+
+    // Attach it to the logical volume (previously stored during Construct())
+    // if (fLogicDetector0) {
+    //     fLogicDetector0->SetSensitiveDetector(siliconSD);
+    // } else {
+    //     G4Exception("DetectorConstruction::ConstructSDandField()",
+    //                 "MyCode001", JustWarning,
+    //                 "fLogicDetector is null — can't attach SD.");
+    // }
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

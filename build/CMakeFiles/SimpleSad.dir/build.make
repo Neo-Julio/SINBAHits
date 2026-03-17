@@ -218,6 +218,7 @@ SimpleSad: /usr/local/lib/libG4modeling.so
 SimpleSad: /usr/local/lib/libG4interfaces.so
 SimpleSad: /usr/local/lib/libG4mctruth.so
 SimpleSad: /usr/local/lib/libG4geomtext.so
+SimpleSad: /usr/local/lib/libG4gdml.so
 SimpleSad: /usr/local/lib/libG4error_propagation.so
 SimpleSad: /usr/local/lib/libG4readout.so
 SimpleSad: /usr/local/lib/libG4physicslists.so
@@ -243,6 +244,7 @@ SimpleSad: /usr/lib/x86_64-linux-gnu/libX11.so
 SimpleSad: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.13
 SimpleSad: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.13
 SimpleSad: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.13
+SimpleSad: /usr/lib/x86_64-linux-gnu/libxerces-c.so
 SimpleSad: /usr/local/lib/libG4analysis.so
 SimpleSad: /usr/lib/x86_64-linux-gnu/libexpat.so
 SimpleSad: /usr/local/lib/libG4zlib.so
