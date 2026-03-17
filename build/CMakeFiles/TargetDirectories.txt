@@ -1,8 +1,0 @@
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/SimpleSad.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/SIMPLESAD.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/edit_cache.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/rebuild_cache.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/list_install_components.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/install.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/install/local.dir
-/home/giulio/GEANT4/workspace/SAD/build/CMakeFiles/install/strip.dir
