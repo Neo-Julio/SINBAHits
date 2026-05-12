@@ -61,8 +61,6 @@ class SiliconHit : public G4VHit
     // get methods
     G4double GetEdep() const;
     G4double GetTrackLength() const;
-    G4int GetPID() const { return fPID; }
-    void SetPID(G4int pid) { fPID = pid; }
     //TrackID
     // Getter
     G4int GetTrackID() const { return fTrackID; }
@@ -72,11 +70,7 @@ class SiliconHit : public G4VHit
     G4int GetDetNum() const { return fDetNum; }
     // Setter
     void SetDetNum(G4int id) { fDetNum = id; }
-  void SetPosEnter(G4ThreeVector xyz) { fPosEnter = xyz; }
-    void SetPosExit(G4ThreeVector xyz)  { fPosExit = xyz; }
-    
-    G4ThreeVector GetPosEnter() const { return fPosEnter; }
-    G4ThreeVector GetPosExit() const  { return fPosExit; }
+
     
 
   private:
@@ -84,9 +78,6 @@ class SiliconHit : public G4VHit
     G4double fTrackLength = 0.; ///< Track length in the  sensitive volume
     G4int fTrackID;
     G4int fDetNum = -1; ///< Detector number (0 for annular, 1-4 for boxes)
-    G4int fPID = 0;     ///< Particle ID
-    G4ThreeVector fPosEnter; 
-    G4ThreeVector fPosExit;
   };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

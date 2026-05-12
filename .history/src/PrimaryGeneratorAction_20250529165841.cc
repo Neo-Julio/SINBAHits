@@ -28,7 +28,6 @@
 /// \brief Implementation of the B1::PrimaryGeneratorAction class
 
 #include "PrimaryGeneratorAction.hh"
-#include "G4GeneralParticleSource.hh"
 
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
@@ -46,16 +45,17 @@
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 {
- // G4int n_particle = 1;
-  fParticleGun  = new G4GeneralParticleSource();
+  G4int n_particle = 1;
+  fParticleGun  = new G4ParticleGun(n_particle);
 
   // default particle kinematic
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4String particleName;
-  G4ParticleDefinition* particle = particleTable->FindParticle(particleName="neutron");
+  G4ParticleDefinition* particle
+    = particleTable->FindParticle(particleName="alpha");
   fParticleGun->SetParticleDefinition(particle);
- // fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  //fParticleGun->SetParticleEnergy(0.0253*eV);
+  //fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  fParticleGun->SetParticleEnergy(5.*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -69,26 +69,34 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
+  //this function is called at the begining of ecah event
+  //
 
+  // In order to avoid dependence of PrimaryGeneratorAction
+  // on DetectorConstruction class we get Envelope volume
+  // from G4LogicalVolumeStore.
+  G4double sourceRadius = 3.5 * mm;
+// Polar coordinates (r, phi) for uniform disk surface
+G4double r   = sourceRadius * std::sqrt(G4UniformRand());  // √ for uniform area
+G4double phi = 2.0 * CLHEP::pi * G4UniformRand();
 
+// Cartesian coordinates in the XY plane
+G4double x = r * std::cos(phi);
+G4double y = r * std::sin(phi);
+G4double z = 0.0 * cm;  // Place the circle at z = 1 cm, or whatever you need
+  
+  // Isotropic direction
+  G4double theta_dir = std::acos(1.0 - 2.0 * G4UniformRand());
+  G4double phi_dir = 2.0 * CLHEP::pi * G4UniformRand();
 
-  G4double x0 = 0;
-  G4double y0 = 0;
-  G4double z0 = -1.0*cm;
-
-//G4double z0 = 3.4 * mm;
-
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
-
+  G4double dx = std::sin(theta_dir) * std::cos(phi_dir);
+  G4double dy = std::sin(theta_dir) * std::sin(phi_dir);
+  G4double dz = std::cos(theta_dir);
+  
+  fParticleGun->SetParticlePosition(G4ThreeVector(x, y, z));
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(dx, dy, dz));
+  fParticleGun->SetParticleEnergy(5.0 * MeV); 
   fParticleGun->GeneratePrimaryVertex(anEvent);
-  G4int EventID = anEvent->GetEventID();
-
-   		if(EventID==0){ G4cout<<G4endl<<"\tSimulation started "<<G4endl;}
-
-  // 		if((EventID%10000)==0){
-   //    		G4cout<<"\tEvent number "<<EventID<<G4endl;
-   	//	}
-		
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

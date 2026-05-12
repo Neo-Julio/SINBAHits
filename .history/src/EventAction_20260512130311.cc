@@ -24,74 +24,80 @@
 // ********************************************************************
 //
 //
-/// \file B1/src/PrimaryGeneratorAction.cc
-/// \brief Implementation of the B1::PrimaryGeneratorAction class
+/// \file B4/B4c/src/EventAction.cc
+/// \brief Implementation of the B4c::EventAction class
 
-#include "PrimaryGeneratorAction.hh"
-#include "G4GeneralParticleSource.hh"
+#include "EventAction.hh"
+#include "SiliconSD.hh"
+#include "SiliconHit.hh"
 
-#include "G4LogicalVolumeStore.hh"
-#include "G4LogicalVolume.hh"
-#include "G4Box.hh"
+#include "G4AnalysisManager.hh"
 #include "G4RunManager.hh"
-#include "G4ParticleGun.hh"
-#include "G4ParticleTable.hh"
-#include "G4ParticleDefinition.hh"
-#include "G4SystemOfUnits.hh"
+#include "G4Event.hh"
+#include "G4SDManager.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4UnitsTable.hh"
+
 #include "Randomize.hh"
+#include <iomanip>
 
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-PrimaryGeneratorAction::PrimaryGeneratorAction()
+SiliconHitsCollection*
+EventAction::GetHitsCollection(G4int hcID,
+                                  const G4Event* event) const
 {
- // G4int n_particle = 1;
-  fParticleGun  = new G4GeneralParticleSource();
+  auto hitsCollection
+    = static_cast<SiliconHitsCollection*>(
+        event->GetHCofThisEvent()->GetHC(hcID));
 
-  // default particle kinematic
-  G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-  G4String particleName;
-  G4ParticleDefinition* particle = particleTable->FindParticle(particleName="neutron");
-  fParticleGun->SetParticleDefinition(particle);
- // fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  //fParticleGun->SetParticleEnergy(0.0253*eV);
+  if ( ! hitsCollection ) {
+    G4ExceptionDescription msg;
+    msg << "Cannot access hitsCollection ID " << hcID;
+    G4Exception("EventAction::GetHitsCollection()",
+      "MyCode0003", FatalException, msg);
+  }
+
+  return hitsCollection;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-PrimaryGeneratorAction::~PrimaryGeneratorAction()
+void EventAction::PrintEventStatistics(
+                              G4double absoEdep, G4double absoTrackLength
+                            ) const
 {
-  delete fParticleGun;
+  // print event statistics
+  G4cout
+     << "   Absorber: total energy: "
+     << std::setw(7) << G4BestUnit(absoEdep, "Energy")
+     << "       total track length: "
+     << std::setw(7) << G4BestUnit(absoTrackLength, "Length")
+     << G4endl;
+  
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
-{
-
-
-
-  G4double x0 = 0;
-  G4double y0 = 0;
-  G4double z0 = -1.0*cm;
-
-//G4double z0 = 3.4 * mm;
-
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
-
-  fParticleGun->GeneratePrimaryVertex(anEvent);
-  G4int EventID = anEvent->GetEventID();
-
-   		if(EventID==0){ G4cout<<G4endl<<"\tSimulation started "<<G4endl;}
-
-  // 		if((EventID%10000)==0){
-   //    		G4cout<<"\tEvent number "<<EventID<<G4endl;
-   	//	}
-		
-}
+void EventAction::BeginOfEventAction(const G4Event* /*event*/)
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+void EventAction::EndOfEventAction(const G4Event* event)
+void EventAction::EndOfEventAction(const G4Event* event)
+{
+  G4int eventID = event->GetEventID();
+  
+  // Get the print progress frequency set in your macro (e.g., /run/printProgress 1000)
+  auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
+  
+  if (printModulo > 0 && eventID % printModulo == 0) {
+    G4cout << "---> End of event: " << eventID << G4endl;
+  }
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 

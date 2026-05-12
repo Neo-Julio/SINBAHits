@@ -79,18 +79,7 @@ RunAction::RunAction()
   analysisManager->CreateNtupleDColumn("DetNum");
   analysisManager->CreateNtupleDColumn("EventID");
   analysisManager->CreateNtupleDColumn("PID");  
-
-    // Enter/Start X, Y, Z  
-  analysisManager->CreateNtupleDColumn("PosEnterX");
-  analysisManager->CreateNtupleDColumn("PosEnterY");
-  analysisManager->CreateNtupleDColumn("PosEnterZ");
-
-    // Exit/Stop X, Y, Z
-  analysisManager->CreateNtupleDColumn("PosExitX");
-  analysisManager->CreateNtupleDColumn("PosExitY");
-  analysisManager->CreateNtupleDColumn("PosExitZ"); 
-
- analysisManager->FinishNtuple();
+  analysisManager->FinishNtuple();
  }
  
  

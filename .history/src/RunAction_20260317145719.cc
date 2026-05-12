@@ -72,25 +72,14 @@ RunAction::RunAction()
  
    // Creating ntuple
    //
-  analysisManager->CreateNtuple("SINBA", "SiliconHits");
+  analysisManager->CreateNtuple("B4", "Edep and TrackL");
   analysisManager->CreateNtupleDColumn("Eabs");
   analysisManager->CreateNtupleDColumn("Labs");
   analysisManager->CreateNtupleDColumn("TrackID");
   analysisManager->CreateNtupleDColumn("DetNum");
   analysisManager->CreateNtupleDColumn("EventID");
   analysisManager->CreateNtupleDColumn("PID");  
-
-    // Enter/Start X, Y, Z  
-  analysisManager->CreateNtupleDColumn("PosEnterX");
-  analysisManager->CreateNtupleDColumn("PosEnterY");
-  analysisManager->CreateNtupleDColumn("PosEnterZ");
-
-    // Exit/Stop X, Y, Z
-  analysisManager->CreateNtupleDColumn("PosExitX");
-  analysisManager->CreateNtupleDColumn("PosExitY");
-  analysisManager->CreateNtupleDColumn("PosExitZ"); 
-
- analysisManager->FinishNtuple();
+  analysisManager->FinishNtuple();
  }
  
  

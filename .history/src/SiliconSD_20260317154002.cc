@@ -36,7 +36,6 @@
 #include "G4ios.hh"
 #include "G4UnitsTable.hh"
 #include "G4RunManager.hh"
-#include "G4AnalysisManager.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -57,7 +56,7 @@ SiliconHit* SiliconSD::FindHit(G4int trackID, G4int detNum)
     for (G4int i = 0; i < nHits; i++) {
         auto hit = (*fHitsCollection)[i];
         if (hit->GetTrackID() == trackID &&
-            hit->GetDetNum()  == detNum)  //
+            hit->GetDetNum()  == detNum)  // 👈 importante!
         {
             return hit;
         }
@@ -123,21 +122,17 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
         hit = new SiliconHit();
         hit->SetTrackID(trackID);
         hit->SetDetNum(detNum);   // 
-        hit->SetPosEnter(step->GetPreStepPoint()->GetPosition());
         fHitsCollection->insert(hit);
     }
 
-    // accumulate energy and track length
-    hit->SetPosExit(step->GetPostStepPoint()->GetPosition());
+    // accumulate energy
     hit->Add(edep, step->GetStepLength());
-    hit->SetPID(PID);
     G4cout << "TrackID=" << trackID 
-           << " PID=" << PID 
-           << " Detector=" << detNum 
-           << " Edep=" << edep/keV << " keV"
-           << " StepLen=" << step->GetStepLength()/um << " um"  // Length of this specific step
-           << " TotalLabs=" << hit->GetTrackLength()/um << " um" // Accumulated length in this detector
-           << G4endl;
+       << " PID=" << PID 
+       << " Detector=" << detNum 
+       << " Edep=" << edep/keV << " keV"
+       << G4endl;
+
 
 
     return true;
@@ -244,36 +239,18 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
 
 void SiliconSD::EndOfEvent(G4HCofThisEvent*)
 {
-  if (!fHitsCollection) return;
+  if (!fHitsCollection) return; // <--- ADD THIS LINE SAFETY CHECK
 
-  auto analysisManager = G4AnalysisManager::Instance();
-  auto eventID = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
-
-  for (std::size_t i = 0; i < fHitsCollection->entries(); ++i) {
-      auto hit = (*fHitsCollection)[i];
-      
-      if (hit->GetEdep() > 0.) {
-          // Match the columns you created in RunAction:
-          analysisManager->FillNtupleDColumn(0, hit->GetEdep());        // Eabs
-          analysisManager->FillNtupleDColumn(1, hit->GetTrackLength()); // Labs
-          analysisManager->FillNtupleDColumn(2, hit->GetTrackID());    // TrackID
-          analysisManager->FillNtupleDColumn(3, hit->GetDetNum());     // DetNum
-          analysisManager->FillNtupleDColumn(4, eventID);              // EventID
-          analysisManager->FillNtupleDColumn(5, hit->GetPID());     // PID (if you have this in your hit class)
-
-        analysisManager->FillNtupleDColumn(6, hit->GetPosEnter().x());
-        analysisManager->FillNtupleDColumn(7, hit->GetPosEnter().y());
-        analysisManager->FillNtupleDColumn(8, hit->GetPosEnter().z());
-        
-        // Exit/Stop X, Y, Z
-        analysisManager->FillNtupleDColumn(9, hit->GetPosExit().x());
-        analysisManager->FillNtupleDColumn(10, hit->GetPosExit().y());
-        analysisManager->FillNtupleDColumn(11, hit->GetPosExit().z());
-
-        analysisManager->AddNtupleRow(); 
-      }
+  if ( verboseLevel>1 ) {
+     auto nofHits = fHitsCollection->entries();
+     G4cout
+       << G4endl
+       << "-------->Hits Collection: in this event they are " << nofHits
+       << " hits in the tracker chambers: " << G4endl;
+     for ( std::size_t i=0; i<nofHits; ++i ) (*fHitsCollection)[i]->Print();
   }
 }
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 

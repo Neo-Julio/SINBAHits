@@ -261,16 +261,7 @@ void SiliconSD::EndOfEvent(G4HCofThisEvent*)
           analysisManager->FillNtupleDColumn(4, eventID);              // EventID
           analysisManager->FillNtupleDColumn(5, hit->GetPID());     // PID (if you have this in your hit class)
 
-        analysisManager->FillNtupleDColumn(6, hit->GetPosEnter().x());
-        analysisManager->FillNtupleDColumn(7, hit->GetPosEnter().y());
-        analysisManager->FillNtupleDColumn(8, hit->GetPosEnter().z());
-        
-        // Exit/Stop X, Y, Z
-        analysisManager->FillNtupleDColumn(9, hit->GetPosExit().x());
-        analysisManager->FillNtupleDColumn(10, hit->GetPosExit().y());
-        analysisManager->FillNtupleDColumn(11, hit->GetPosExit().z());
-
-        analysisManager->AddNtupleRow(); 
+          analysisManager->AddNtupleRow(); 
       }
   }
 }

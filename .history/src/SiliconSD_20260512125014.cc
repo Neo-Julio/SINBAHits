@@ -57,7 +57,7 @@ SiliconHit* SiliconSD::FindHit(G4int trackID, G4int detNum)
     for (G4int i = 0; i < nHits; i++) {
         auto hit = (*fHitsCollection)[i];
         if (hit->GetTrackID() == trackID &&
-            hit->GetDetNum()  == detNum)  //
+            hit->GetDetNum()  == detNum)  // 👈 importante!
         {
             return hit;
         }
@@ -123,21 +123,17 @@ G4bool SiliconSD::ProcessHits(G4Step* step,
         hit = new SiliconHit();
         hit->SetTrackID(trackID);
         hit->SetDetNum(detNum);   // 
-        hit->SetPosEnter(step->GetPreStepPoint()->GetPosition());
         fHitsCollection->insert(hit);
     }
 
-    // accumulate energy and track length
-    hit->SetPosExit(step->GetPostStepPoint()->GetPosition());
+    // accumulate energy
     hit->Add(edep, step->GetStepLength());
-    hit->SetPID(PID);
     G4cout << "TrackID=" << trackID 
-           << " PID=" << PID 
-           << " Detector=" << detNum 
-           << " Edep=" << edep/keV << " keV"
-           << " StepLen=" << step->GetStepLength()/um << " um"  // Length of this specific step
-           << " TotalLabs=" << hit->GetTrackLength()/um << " um" // Accumulated length in this detector
-           << G4endl;
+       << " PID=" << PID 
+       << " Detector=" << detNum 
+       << " Edep=" << edep/keV << " keV"
+       << G4endl;
+
 
 
     return true;
@@ -259,18 +255,9 @@ void SiliconSD::EndOfEvent(G4HCofThisEvent*)
           analysisManager->FillNtupleDColumn(2, hit->GetTrackID());    // TrackID
           analysisManager->FillNtupleDColumn(3, hit->GetDetNum());     // DetNum
           analysisManager->FillNtupleDColumn(4, eventID);              // EventID
-          analysisManager->FillNtupleDColumn(5, hit->GetPID());     // PID (if you have this in your hit class)
+          // analysisManager->FillNtupleDColumn(5, hit->GetPID());     // PID (if you have this in your hit class)
 
-        analysisManager->FillNtupleDColumn(6, hit->GetPosEnter().x());
-        analysisManager->FillNtupleDColumn(7, hit->GetPosEnter().y());
-        analysisManager->FillNtupleDColumn(8, hit->GetPosEnter().z());
-        
-        // Exit/Stop X, Y, Z
-        analysisManager->FillNtupleDColumn(9, hit->GetPosExit().x());
-        analysisManager->FillNtupleDColumn(10, hit->GetPosExit().y());
-        analysisManager->FillNtupleDColumn(11, hit->GetPosExit().z());
-
-        analysisManager->AddNtupleRow(); 
+          analysisManager->AddNtupleRow(); 
       }
   }
 }

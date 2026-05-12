@@ -88,15 +88,54 @@ void EventAction::BeginOfEventAction(const G4Event* /*event*/)
 
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-  G4int eventID = event->GetEventID();
-  
-  // Get the print progress frequency set in your macro (e.g., /run/printProgress 1000)
-  auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
-  
-  if (printModulo > 0 && eventID % printModulo == 0) {
-    G4cout << "---> End of event: " << eventID << G4endl;
+  if (fAbsHCID == -1) {
+    auto mgr = G4SDManager::GetSDMpointer();
+    fAbsHCID = mgr->GetCollectionID("SiliconHitsCollection");
+    if (fAbsHCID == -1) {
+      G4Exception("EventAction::EndOfEventAction",
+                  "MyCode001", JustWarning,
+                  "SiliconHitsCollection not found in SDManager.");
+      return;
+    }
   }
+
+  auto absoHC = GetHitsCollection(fAbsHCID, event);
+  if (!absoHC || absoHC->entries() == 0) {
+    G4cout << "No hits in this event." << G4endl;
+    return;
+  }
+
+  // Sum over all hits
+  G4double totalEdep = 0.;
+  G4double totalTrackLength = 0.;
+
+  for (G4int i = 0; i < absoHC->entries(); ++i) {
+    auto* hit = (*absoHC)[i];
+    totalEdep += hit->GetEdep();
+    totalTrackLength += hit->GetTrackLength();
+  }
+
+  // Skip events with zero total energy deposition
+  if (totalEdep <= 0.) {
+    G4cout << "No energy deposited in this event." << G4endl;
+    return;
+  }
+
+  // Print event stats (if needed)
+  auto eventID = event->GetEventID();
+  auto printModulo = G4RunManager::GetRunManager()->GetPrintProgress();
+  if ((printModulo > 0) && (eventID % printModulo == 0)) {
+    PrintEventStatistics(totalEdep, totalTrackLength);
+    G4cout << "--> End of event: " << eventID << "\n" << G4endl;
+  }
+
+  // Fill histograms & ntuple
+  auto analysisManager = G4AnalysisManager::Instance();
+  analysisManager->FillNtupleDColumn(0, totalEdep);
+  analysisManager->FillNtupleDColumn(1, totalTrackLength);
+  analysisManager->AddNtupleRow();
 }
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 

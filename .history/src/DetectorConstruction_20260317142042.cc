@@ -334,7 +334,6 @@ void DetectorConstruction::ConstructSDandField()
         for (auto lv : fLogicDetectors)
     {
         if (lv) lv->SetSensitiveDetector(siliconSD);
-        G4cout << "Assigning SD to: " << lv->GetName() << G4endl;
     }
 
     // Attach it to the logical volume (previously stored during Construct())

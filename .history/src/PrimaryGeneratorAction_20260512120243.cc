@@ -28,7 +28,6 @@
 /// \brief Implementation of the B1::PrimaryGeneratorAction class
 
 #include "PrimaryGeneratorAction.hh"
-#include "G4GeneralParticleSource.hh"
 
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
