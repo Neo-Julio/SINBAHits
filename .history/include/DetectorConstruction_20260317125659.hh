@@ -52,7 +52,6 @@ class DetectorConstruction : public G4VUserDetectorConstruction
   private:
   //  G4LogicalVolume* fLogicDetector0;  // <-- Store pointer to Si detector logical volume
     std::vector<G4LogicalVolume*> fLogicDetectors;
-    G4LogicalVolume* logicSample;
 };
 
 

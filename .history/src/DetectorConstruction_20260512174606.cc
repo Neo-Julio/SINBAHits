@@ -120,7 +120,8 @@ G4VSolid* SolidBacking = new G4Box("SolidBacking",BackingDX/2  , BackingDY/2 , B
 
 double SamplePos = BackingDZ + SampleDZ/2;
 
- logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
+
+G4LogicalVolume* logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
 G4LogicalVolume* logicBacking = new G4LogicalVolume(SolidBacking,Mylar_mat,"logicBacking"); 
 
 new G4PVPlacement(0,      					//no rotation
@@ -383,11 +384,10 @@ if (logicSample) { // <-- AGGIUNGI QUESTO CONTROLLO
         logicSample->SetSensitiveDetector(sampleSD);
         G4cout << "Assigning SD to: " << logicSample->GetName() << G4endl;
     } else {
-G4Exception("DetectorConstruction::ConstructSDandField", // Origine
-            "NULL_Pointer",                             // Codice Errore
-            FatalException,                             // Gravità (ferma il programma)
-            "logicSample is NULL! Check its definition in Construct().");     }
+        G4Exception("Errore: logicSample è nullo! Controlla la creazione in Construct()");
+    }
 
 }
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.....
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 

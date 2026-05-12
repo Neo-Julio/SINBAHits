@@ -28,6 +28,7 @@
 /// \brief Implementation of the B1::DetectorConstruction class
 
 #include "DetectorConstruction.hh"
+
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
 #include "G4Box.hh"
@@ -120,7 +121,8 @@ G4VSolid* SolidBacking = new G4Box("SolidBacking",BackingDX/2  , BackingDY/2 , B
 
 double SamplePos = BackingDZ + SampleDZ/2;
 
- logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
+
+G4LogicalVolume* logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
 G4LogicalVolume* logicBacking = new G4LogicalVolume(SolidBacking,Mylar_mat,"logicBacking"); 
 
 new G4PVPlacement(0,      					//no rotation
@@ -367,7 +369,6 @@ void DetectorConstruction::ConstructSDandField()
     // Create a new instance of your sensitive detector for this thread
     auto siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
 
-
     // Register it with the SD manager
     G4SDManager::GetSDMpointer()->AddNewDetector(siliconSD);
 
@@ -379,15 +380,10 @@ void DetectorConstruction::ConstructSDandField()
 
  auto sampleSD = new SampleSD("SampleSD", "SampleHitsCollection");
  G4SDManager::GetSDMpointer()->AddNewDetector(sampleSD);
-if (logicSample) { // <-- AGGIUNGI QUESTO CONTROLLO
-        logicSample->SetSensitiveDetector(sampleSD);
-        G4cout << "Assigning SD to: " << logicSample->GetName() << G4endl;
-    } else {
-G4Exception("DetectorConstruction::ConstructSDandField", // Origine
-            "NULL_Pointer",                             // Codice Errore
-            FatalException,                             // Gravità (ferma il programma)
-            "logicSample is NULL! Check its definition in Construct().");     }
+ logicSample->SetSensitiveDetector(sampleSD);
+ G4cout << "Assigning SD to: " << logicSample->GetName() << G4endl; 
 
 }
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.....
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 

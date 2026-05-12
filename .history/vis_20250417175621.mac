@@ -33,25 +33,8 @@
 /vis/verbose errors
 #
 /vis/viewer/set/background white
-
-/vis/geometry/set/visibility logicAirBox 0 false
 #set colors
-# --- SILICI (Verde Brillante) ---
-# Sintassi: [Volume] [Profondità] [R] [G] [B] [Alpha]
-/vis/geometry/set/colour logicDetector0  0 0.0 1.0 1.0 1.0
-
-/vis/geometry/set/colour logicSiBoxA     0 0.0 1.0 0.0 1.0
-/vis/geometry/set/colour logicSiBoxB     0 0.0 1.0 0.0 1.0
-/vis/geometry/set/colour logicSiBoxC     0 0.0 1.0 0.0 1.0
-/vis/geometry/set/colour logicSiBoxD     0 0.0 1.0 0.0 1.0
-
-# --- CAMPIONE LiF (Giallo) ---
-/vis/geometry/set/colour logicSample    0 1.0 1.0 0.0 1.0
-
-# --- BACKING MYLAR (Grigio Semitrasparente) ---
-# L'ultimo valore 0.5 serve a vedere le particelle che passano attraverso
-/vis/geometry/set/colour logicBacking   0 0.5 0.5 0.5 0.5
-
+/vis/geometry/set/colour logicDetector 1 0 0.73 1
 # Draw geometry:
 /vis/drawVolume
 #

@@ -38,8 +38,7 @@
 #set colors
 # --- SILICI (Verde Brillante) ---
 # Sintassi: [Volume] [Profondità] [R] [G] [B] [Alpha]
-/vis/geometry/set/colour logicDetector0  0 0.0 1.0 1.0 1.0
-
+/vis/geometry/set/colour flogicDetector0 0 0.0 1.0 1.0 1.0
 /vis/geometry/set/colour logicSiBoxA     0 0.0 1.0 0.0 1.0
 /vis/geometry/set/colour logicSiBoxB     0 0.0 1.0 0.0 1.0
 /vis/geometry/set/colour logicSiBoxC     0 0.0 1.0 0.0 1.0

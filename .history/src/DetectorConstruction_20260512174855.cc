@@ -88,8 +88,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Box* solidWorld =    
     new G4Box("World",                      //its name
            world_size, world_size, world_size);  	//its size
-        
-  G4LogicalVolume* logicWorld =                         
+logicWorld =                         
         new G4LogicalVolume(solidWorld,		//its solid
            Vacuum_mat,		//its material
               "World");		//its name
@@ -120,7 +119,8 @@ G4VSolid* SolidBacking = new G4Box("SolidBacking",BackingDX/2  , BackingDY/2 , B
 
 double SamplePos = BackingDZ + SampleDZ/2;
 
- logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
+
+G4LogicalVolume* logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
 G4LogicalVolume* logicBacking = new G4LogicalVolume(SolidBacking,Mylar_mat,"logicBacking"); 
 
 new G4PVPlacement(0,      					//no rotation

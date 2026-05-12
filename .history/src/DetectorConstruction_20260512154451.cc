@@ -28,6 +28,7 @@
 /// \brief Implementation of the B1::DetectorConstruction class
 
 #include "DetectorConstruction.hh"
+
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
 #include "G4Box.hh"
@@ -44,8 +45,6 @@
 #include "SiliconHit.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4SDManager.hh"
-#include "SampleSD.hh"
-#include "SampleHit.hh"
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -105,41 +104,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
             checkOverlaps);        //overlaps checking
  
 
-//sample 
-double SampleDX = 4.5*cm;
-double SampleDY = 4.5*cm;
-double SampleDZ = 400*nm;
-
-G4VSolid* SolidSample = new G4Box("SolidSample",SampleDX/2  , SampleDY/2 , SampleDZ/2 );
-
-//backing material for sample
-double BackingDX = 4.5*cm;
-double BackingDY = 4.5*cm;
-double BackingDZ = 5*um;
-G4VSolid* SolidBacking = new G4Box("SolidBacking",BackingDX/2  , BackingDY/2 , BackingDZ/2 );
-
-double SamplePos = BackingDZ + SampleDZ/2;
-
- logicSample = new G4LogicalVolume(SolidSample,LiF_mat,"logicSample");
-G4LogicalVolume* logicBacking = new G4LogicalVolume(SolidBacking,Mylar_mat,"logicBacking"); 
-
-new G4PVPlacement(0,      					//no rotation
-G4ThreeVector(0.,0.,SamplePos ),  	//position
-logicSample,					//its logical volume
-"Sample",						//its name
-logicWorld, 					//its mother  volume
-false,						//no boolean operation
-0,							//copy number
-checkOverlaps);					//overlaps checking 
-
-new G4PVPlacement(0,      					//no rotation
-G4ThreeVector(0.,0.,BackingDZ/2),  	//position
-logicBacking,					//its logical volume
-"Backing",						//its name
-logicWorld, 					//its mother  volume
-false,						//no boolean operation
-0,							//copy number
-checkOverlaps);					//overlaps checking 
 
       //Annular detector
 
@@ -150,7 +114,7 @@ checkOverlaps);					//overlaps checking
 		G4double SiliconThickness = 500.*um;
 		G4double DeadLayerThickness = 0.5*um;
 		G4double ChordToChord = 89.64*mm;		
-		G4double SADDis = BackingDZ + SampleDZ + DeadLayerThickness + SiliconThickness/2. + 9*cm; // Distance from sample to detector front face
+		G4double SADDis = 11.0 *cm;
 	
 		G4VSolid* solidTube = new G4Tubs("solidTube", SiliconInnerRadius, SiliconOuterRadius, SiliconThickness/2., 0., tube_dPhi);
 		G4VSolid* solidBox = new G4Box("solidBox", ChordToChord/2., SiliconOuterRadius, SiliconThickness/2.);	
@@ -206,7 +170,7 @@ G4double AirBoxSideZ = 49.5*mm ;
 G4double AirBoxSideY = 10*cm ;
 G4double AirBoxSiDistanceX = 4.5 *cm + SilBoxZ/2 ;
 G4double AirBoxSiDistanceY = 4.5 *cm + SilBoxZ/2 ;
-G4double AirBoxPos = SampleDZ + BackingDZ + AirBoxSideZ/2 + 3*cm; // Distance from sample to detector front face
+G4double AirBoxPos = 5*cm + DeadLayerThickness + SiliconThickness + AirBoxSideZ/2; 
 G4double AirBoxSiDLY = AirBoxSiDistanceY - SilBoxZ/2 - SilBoxThicknessDL/2;
 G4double AirBoxSiDLX = AirBoxSiDistanceX - SilBoxZ/2 - SilBoxThicknessDL/2;
 
@@ -356,7 +320,16 @@ fLogicDetectors.push_back(logicSiBoxC);       // box C
 fLogicDetectors.push_back(logicSiBoxD);       // box D
 
 
+//sample 
+double SampleDX = 0.5*cm;
+double SampleDY = 0.5*cm;
+double SampleDZ = 400*nm;
+G4VSolid* SolidSiBoxDDL = new G4Box("SiBoxDDL",SampleDX/2  , SampleDY/2 , SampleDZ/2 );
 
+//backing material for sample
+double BackingDX = 0.5*cm;
+double BackingDY = 0.5*cm;
+double BackingDZ = 5*um;
 
 
 return physWorld;
@@ -367,7 +340,6 @@ void DetectorConstruction::ConstructSDandField()
     // Create a new instance of your sensitive detector for this thread
     auto siliconSD = new SiliconSD("SiliconSD", "SiliconHitsCollection");
 
-
     // Register it with the SD manager
     G4SDManager::GetSDMpointer()->AddNewDetector(siliconSD);
 
@@ -377,17 +349,8 @@ void DetectorConstruction::ConstructSDandField()
         G4cout << "Assigning SD to: " << lv->GetName() << G4endl;
     }
 
- auto sampleSD = new SampleSD("SampleSD", "SampleHitsCollection");
- G4SDManager::GetSDMpointer()->AddNewDetector(sampleSD);
-if (logicSample) { // <-- AGGIUNGI QUESTO CONTROLLO
-        logicSample->SetSensitiveDetector(sampleSD);
-        G4cout << "Assigning SD to: " << logicSample->GetName() << G4endl;
-    } else {
-G4Exception("DetectorConstruction::ConstructSDandField", // Origine
-            "NULL_Pointer",                             // Codice Errore
-            FatalException,                             // Gravità (ferma il programma)
-            "logicSample is NULL! Check its definition in Construct().");     }
 
 }
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo.....
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
 
